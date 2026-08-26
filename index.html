@@ -57,7 +57,12 @@ input{width:100%;font-size:16px;padding:12px 10px;border-radius:11px;border:1px 
 }
 .tab-icon{font-size:15px;line-height:1}.glossary-card{background:var(--card2);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}.glossary-card summary{list-style:none;padding:13px;font-weight:850;cursor:pointer}.glossary-card summary::-webkit-details-marker{display:none}.definition{border-top:1px solid var(--line);padding:12px;font-size:12px;line-height:1.55;color:var(--muted)}.definition b{color:var(--text)}.demo-image{width:100%;border-radius:14px;border:1px solid var(--line);display:block}.demo-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:10px}
 body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
-.kick-list{margin:8px 0 8px 18px;padding:0}.kick-list li{margin:7px 0;color:var(--muted)}.kick-list b{color:var(--text)}.demo-link-note{margin-top:9px}.demo-section-title{font-size:14px;font-weight:900;color:var(--good);margin:14px 0 10px}.kick-demo-card{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:11px;margin-bottom:12px}.kick-demo-head{display:flex;align-items:center;gap:9px;margin-bottom:9px}.kick-demo-head b{display:block;font-size:14px}.kick-demo-head small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.kick-number{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--good);color:#07111f;font-weight:900;font-size:12px;flex:0 0 auto}.kick-demo-image{width:100%;height:auto;display:block;border-radius:11px;border:1px solid var(--line);background:#fff;object-fit:contain}.demo-bullets{margin:9px 0 7px 19px;padding:0;color:var(--muted);font-size:11px;line-height:1.45}.demo-bullets li{margin:4px 0}.pass-box{font-size:11px;line-height:1.45;color:var(--text);border-top:1px solid #263345;padding-top:8px}.pass-box:first-letter{color:var(--good)}.demo-rule{background:#101721;border:1px solid var(--line);border-radius:11px;padding:9px;margin-bottom:15px}@media(max-width:390px){.kick-demo-card{padding:9px}.kick-demo-head b{font-size:13px}.demo-bullets,.pass-box{font-size:10.5px}}
+
+
+.definition ul{margin:8px 0 4px 20px;padding:0}
+.definition li{margin:7px 0;color:var(--muted);line-height:1.45}
+.definition li::marker{color:var(--warn)}
+.definition .glossary-label{color:var(--text);font-weight:800;margin-top:10px}
 
 </style></head><body>
 <header><b>Character Fitness RPG</b><small>Enter all results, then tap Calculate Rankings</small></header><div class="wrap">
@@ -136,24 +141,145 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
         <div><span>Hack squat</span><b>280 kg ×8</b></div><div><span>Leg press</span><b>280 kg ×8</b></div><div><span>Single-leg press</span><b>155 kg ×8 each</b></div><div><span>Hip thrust</span><b>150 kg ×8</b></div><div><span>Chest press</span><b>120 kg ×8</b></div><div><span>Seated row</span><b>130 kg ×8</b></div><div><span>Lat pulldown</span><b>135 kg ×8</b></div><div><span>Chin-up</span><b>+25 kg × 10</b></div><div><span>5K</span><b>≤22:30</b></div><div><span>10K</span><b>≤50 min</b></div></div></details></section></div></div></div>
 <div id="glossaryView" class="tab-view">
 <div class="card"><h2>Glossary</h2><div class="notice">Your rulebook for the movement and fighting requirements used in Levels.</div>
-<details class="glossary-card"><summary>Deep Squat</summary><div class="definition"><b>What it means:</b> A comfortable full-depth squat showing usable hip, knee and ankle range. <br><b>Pass standard:</b> Reach a deep squat under control, keep the feet planted and maintain balance without needing support.</div></details>
-<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition"><b>What it means:</b> Sufficient posterior-chain range to hinge and reach toward the floor without forcing the position. <br><b>Level target:</b> Palms near the floor with controlled form.</div></details>
-<details class="glossary-card"><summary>Flexibility</summary><div class="definition"><b>Level target:</b> Palms flat on the floor with controlled form rather than bouncing or forcing the stretch.</div></details>
-<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition"><b>What it means:</b> Strong usable range through the hips and ankles for squatting, lunging and athletic movement. <br><b>Pass standard:</b> Demonstrate comfortable deep lower-body positions with heels controlled and no major compensation or loss of balance.</div></details>
-<details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition"><b>What it means:</b> Active range for common striking patterns; this tests mobility, not fighting proficiency.<br><br><b>Test both legs:</b><ul class="kick-list"><li><b>Front Kick (Snap Kick)</b> — to your own <b>nose height</b></li><li><b>Roundhouse Kick</b> — to your own <b>nose height</b></li><li><b>Side Kick</b> — to your own <b>shoulder height</b></li></ul><div class="demo-link-note">No jumping or external assistance. Judge height by the striking part of the foot. See <b>Demos → Kicks</b> for the visual standard.</div></div></details>
-<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition"><b>Level 17 — Control.</b> 10 squat jumps; 5 forward broad jumps with ~2-second landing holds; 5 lateral jumps each direction; 5 step/drop landings from ~20–30 cm. <br><b>Pass:</b> controlled, reasonably quiet landings; knees track well; no falls or extra recovery steps.</div></details>
-<details class="glossary-card"><summary>Plyometrics</summary><div class="definition"><b>Level 18 — Explosiveness &amp; Reactivity.</b> 10 continuous pogo jumps; 8 continuous squat jumps; 5 powerful broad jumps; 10 skater bounds (5 each side); 5 low box jumps (~20–30 cm), stepping down between reps. <br><b>Pass:</b> consistent technique and control without form progressively breaking down.</div></details>
-<details class="glossary-card"><summary>Martial Arts — Beginner</summary><div class="definition">The first fighting milestone: demonstrate beginner-level martial-arts competency and training rather than merely possessing the mobility to perform the movements.</div></details>
-<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition">Demonstrate intermediate technique in your chosen martial art, progressing beyond the beginner milestone.</div></details>
-<details class="glossary-card"><summary>Sparring — Competent</summary><div class="definition">Demonstrate competent, controlled live sparring appropriate to your martial art and training environment.</div></details>
+
+<details class="glossary-card"><summary>Deep Squat</summary><div class="definition">
+<div class="glossary-label">What it means</div>
+<ul>
+<li>Comfortable full-depth squat.</li>
+<li>Shows usable hip, knee and ankle range.</li>
+</ul>
+<div class="glossary-label">Pass</div>
+<ul>
+<li>Reach a deep squat under control.</li>
+<li>Keep both feet planted.</li>
+<li>Maintain balance without support.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition">
+<div class="glossary-label">What it means</div>
+<ul>
+<li>Enough posterior-chain range to hinge toward the floor comfortably.</li>
+<li>No bouncing or forcing the position.</li>
+</ul>
+<div class="glossary-label">Level target</div>
+<ul>
+<li>Palms near the floor with controlled form.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Flexibility</summary><div class="definition">
+<div class="glossary-label">Level target</div>
+<ul>
+<li>Palms flat on the floor.</li>
+<li>Use controlled form.</li>
+<li>No bouncing or forcing the stretch.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition">
+<div class="glossary-label">What it means</div>
+<ul>
+<li>Strong, usable range through the hips and ankles.</li>
+<li>Supports squatting, lunging and athletic movement.</li>
+</ul>
+<div class="glossary-label">Pass</div>
+<ul>
+<li>Demonstrate comfortable deep lower-body positions.</li>
+<li>Keep the heels controlled.</li>
+<li>No major compensation.</li>
+<li>No loss of balance.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition">
+<div class="glossary-label">What it means</div>
+<ul>
+<li>Active range of motion for useful martial-arts kicking positions.</li>
+<li>This is a mobility test, not a fighting-proficiency test.</li>
+<li>Test both legs.</li>
+</ul>
+<div class="glossary-label">Kick targets</div>
+<ul>
+<li><b>Front kick:</b> striking foot reaches your own nose height.</li>
+<li><b>Side kick:</b> heel reaches your own shoulder height.</li>
+</ul>
+<div class="glossary-label">Pass</div>
+<ul>
+<li>Reach the required height under control.</li>
+<li>No jumping.</li>
+<li>No external assistance.</li>
+<li>Judge height using the striking part of the foot.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition">
+<div class="glossary-label">Level 17 — Control</div>
+<ul>
+<li>10 squat jumps.</li>
+<li>5 forward broad jumps.</li>
+<li>Hold each broad-jump landing for ~2 seconds.</li>
+<li>5 lateral jumps each direction.</li>
+<li>5 step/drop landings from ~20–30 cm.</li>
+</ul>
+<div class="glossary-label">Pass</div>
+<ul>
+<li>Controlled landings.</li>
+<li>Reasonably quiet landings.</li>
+<li>Knees track well.</li>
+<li>No falls.</li>
+<li>No extra recovery steps.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Plyometrics</summary><div class="definition">
+<div class="glossary-label">Level 18 — Explosiveness &amp; Reactivity</div>
+<ul>
+<li>10 continuous pogo jumps.</li>
+<li>8 continuous squat jumps.</li>
+<li>5 powerful broad jumps.</li>
+<li>10 skater bounds — 5 each side.</li>
+<li>5 low box jumps from ~20–30 cm.</li>
+<li>Step down between box-jump reps rather than jumping down.</li>
+</ul>
+<div class="glossary-label">Pass</div>
+<ul>
+<li>Keep technique consistent.</li>
+<li>Maintain landing control.</li>
+<li>No major loss of balance.</li>
+<li>Form should not progressively break down.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Martial Arts — Beginner</summary><div class="definition">
+<div class="glossary-label">Requirement</div>
+<ul>
+<li>Train in a recognised martial art.</li>
+<li>Demonstrate beginner-level technique and competency.</li>
+<li>This is a skill milestone, not just a mobility milestone.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition">
+<div class="glossary-label">Requirement</div>
+<ul>
+<li>Progress beyond the beginner milestone.</li>
+<li>Demonstrate intermediate technique in your chosen martial art.</li>
+<li>Use the progression standards of your actual martial-arts school where practical.</li>
+</ul>
+</div></details>
+
+<details class="glossary-card"><summary>Sparring — Competent</summary><div class="definition">
+<div class="glossary-label">Requirement</div>
+<ul>
+<li>Demonstrate competent live sparring.</li>
+<li>Maintain control and appropriate technique.</li>
+<li>Spar at an appropriate intensity for your martial art and training environment.</li>
+</ul>
+</div></details>
+
 </div></div>
-<div id="demosView" class="tab-view"><div class="card"><h2>Exercise Demos</h2><div class="notice">Visual guides for mobility, striking, jumps &amp; plyometrics.</div>
-<div class="demo-section-title">🥋 Kicks</div>
-<div class="kick-demo-card"><div class="kick-demo-head"><span class="kick-number">1</span><div><b>Front Kick (Snap Kick)</b><small>Nose-height mobility target</small></div></div><img class="kick-demo-image" src="assets/kick_front_demo.png" alt="Front snap kick start and pass demonstration"><ul class="demo-bullets"><li>Lift the knee first</li><li>Snap the lower leg forward</li><li>Strike with the ball of the foot</li></ul><div class="pass-box">✓ Pass: striking foot reaches your own <b>nose height</b> with control and without jumping.</div></div>
-<div class="kick-demo-card"><div class="kick-demo-head"><span class="kick-number">2</span><div><b>Roundhouse Kick</b><small>Nose-height mobility target</small></div></div><img class="kick-demo-image" src="assets/kick_roundhouse_demo.png" alt="Roundhouse kick start and pass demonstration"><ul class="demo-bullets"><li>Chamber the knee across your body</li><li>Turn the standing foot and hips over</li><li>Extend the lower leg toward the target</li></ul><div class="pass-box">✓ Pass: striking foot reaches your own <b>nose height</b> with the hips turned over and no external assistance.</div></div>
-<div class="kick-demo-card"><div class="kick-demo-head"><span class="kick-number">3</span><div><b>Side Kick</b><small>Shoulder-height mobility target</small></div></div><img class="kick-demo-image" src="assets/kick_side_demo.png" alt="Side kick start and pass demonstration"><ul class="demo-bullets"><li>Chamber the knee across your body</li><li>Turn side-on and push the leg out</li><li>Strike with the heel / outside edge of the foot</li></ul><div class="pass-box">✓ Pass: striking foot reaches your own <b>shoulder height</b> while staying balanced and controlled.</div></div>
-<div class="demo-note demo-rule"><b>For all three:</b> test both legs. No jumping. No external assistance. Height is judged by the striking part of the foot.</div>
-<div class="demo-section-title">🦘 Jumps &amp; Plyometrics</div><img class="demo-image" src="assets/jumps_plyometrics_demo.png" alt="Level 17 jumps and landings and Level 18 plyometrics exercise demonstration infographic"><div class="demo-note"><b>Level 17:</b> prioritise landing control. <b>Level 18:</b> add explosiveness and reactivity while keeping that control.</div></div></div>
+<div id="demosView" class="tab-view"><div class="card"><h2>Exercise Demos</h2><div class="notice">Visual reference for movement requirements.</div><img class="demo-image" src="assets/jumps_plyometrics_demo.png" alt="Level 17 jumps and landings and Level 18 plyometrics exercise demonstration infographic"><div class="demo-note"><b>Level 17:</b> prioritise landing control. <b>Level 18:</b> add explosiveness and reactivity while keeping that control.</div></div></div>
 <nav class="bottom-tabs" aria-label="App sections">
   <div class="bottom-tabs-inner">
     <button id="progressTabBtn" class="tab-btn active" type="button" aria-selected="true">
