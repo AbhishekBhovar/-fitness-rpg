@@ -123,6 +123,23 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 .kick-pass b{color:var(--good)}
 .demo-section-title{overflow-wrap:anywhere}
 
+
+.hip-ankle-crop{
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid var(--line);
+  margin:8px 0 14px;
+  background:#0b121b;
+}
+.hip-ankle-crop img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin-top:-22%;
+}
+
 </style></head><body>
 <header><b>Character Fitness RPG</b><small>Enter all results, then tap Calculate Rankings</small></header><div class="wrap">
 <div id="progressView" class="tab-view active">
@@ -345,7 +362,7 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 
 <div class="demo-section-title">🦵 Hip &amp; Ankle Mobility</div>
 <div class="demo-note"><b>Level 15 visual standard:</b> 90/90 hip position on both sides + knee-to-wall ankle test on both sides.</div>
-<img class="demo-image" src="assets/hip_ankle_mobility_demo.png" alt="Hip and ankle mobility demo showing 90/90 hip position and knee-to-wall ankle mobility test">
+<div class="hip-ankle-crop"><img src="assets/hip_ankle_mobility_demo.png" alt="90/90 hip position and knee-to-wall ankle mobility test"></div>
 <div class="demo-section-title">🥋 High-Kick Mobility</div>
 <div class="demo-note"><b>Test standard:</b> both legs • no jumping • no external assistance.</div>
 
