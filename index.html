@@ -64,6 +64,10 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 .definition li::marker{color:var(--warn)}
 .definition .glossary-label{color:var(--text);font-weight:800;margin-top:10px}
 
+
+.demo-section-title{font-size:15px;font-weight:900;color:var(--good);margin:14px 0 8px}
+.demo-image{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);margin:8px 0 14px;background:#0b121b}
+
 </style></head><body>
 <header><b>Character Fitness RPG</b><small>Enter all results, then tap Calculate Rankings</small></header><div class="wrap">
 <div id="progressView" class="tab-view active">
@@ -279,7 +283,21 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 </div></details>
 
 </div></div>
-<div id="demosView" class="tab-view"><div class="card"><h2>Exercise Demos</h2><div class="notice">Visual reference for movement requirements.</div><img class="demo-image" src="assets/jumps_plyometrics_demo.png" alt="Level 17 jumps and landings and Level 18 plyometrics exercise demonstration infographic"><div class="demo-note"><b>Level 17:</b> prioritise landing control. <b>Level 18:</b> add explosiveness and reactivity while keeping that control.</div></div></div>
+<div id="demosView" class="tab-view">
+<div class="card">
+<h2>Exercise Demos</h2>
+<div class="notice">Visual reference for movement requirements.</div>
+
+<div class="demo-section-title">🥋 High-Kick Mobility</div>
+<img class="demo-image" src="assets/front_kick_demo.png" alt="Front kick mobility demo showing chamber and nose-height pass position">
+<img class="demo-image" src="assets/side_kick_demo.png" alt="Side kick mobility demo showing chamber and shoulder-height pass position">
+<div class="demo-note"><b>High-Kick Mobility:</b> test both legs. No jumping or external assistance.</div>
+
+<div class="demo-section-title">🦘 Jumps, Landings &amp; Plyometrics</div>
+<img class="demo-image" src="assets/jumps_plyometrics_demo.png" alt="Level 17 jumps and landings and Level 18 plyometrics exercise demonstration infographic">
+<div class="demo-note"><b>Level 17:</b> prioritise landing control. <b>Level 18:</b> add explosiveness and reactivity while keeping that control.</div>
+</div>
+</div>
 <nav class="bottom-tabs" aria-label="App sections">
   <div class="bottom-tabs-inner">
     <button id="progressTabBtn" class="tab-btn active" type="button" aria-selected="true">
