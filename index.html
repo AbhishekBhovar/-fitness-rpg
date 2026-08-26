@@ -55,7 +55,26 @@ input{width:100%;font-size:16px;padding:12px 10px;border-radius:11px;border:1px 
   background:#172235;
   border-color:var(--line);
 }
-.tab-icon{font-size:15px;line-height:1}.glossary-card{background:var(--card2);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}.glossary-card summary{list-style:none;padding:13px;font-weight:850;cursor:pointer}.glossary-card summary::-webkit-details-marker{display:none}.definition{border-top:1px solid var(--line);padding:12px;font-size:12px;line-height:1.55;color:var(--muted)}.definition b{color:var(--text)}.demo-image{width:100%;border-radius:14px;border:1px solid var(--line);display:block}.demo-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:10px}
+.tab-icon{font-size:15px;line-height:1}.glossary-card{background:var(--card2);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}.glossary-card summary{list-style:none;padding:13px;font-weight:850;cursor:pointer}.glossary-card summary::-webkit-details-marker{display:none}.definition{border-top:1px solid var(--line);padding:12px;font-size:12px;line-height:1.55;color:var(--muted)}.definition b{color:var(--text)}.demo-image{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:14px;
+  border:1px solid var(--line);
+  margin:8px 0 14px;
+  background:#0b121b;
+}.demo-note{
+  margin:8px 0 14px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--card2);
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.45;
+}
 body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 
 
@@ -288,10 +307,13 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 <h2>Exercise Demos</h2>
 <div class="notice">Visual reference for movement requirements.</div>
 
+<div class="demo-section-title">🦵 Hip &amp; Ankle Mobility</div>
+<div class="demo-note"><b>Level 15 visual standard:</b> 90/90 hip position on both sides + knee-to-wall ankle test on both sides.</div>
+<img class="demo-image" src="assets/hip_ankle_mobility_demo.png" alt="Hip and ankle mobility demo showing 90/90 hip position and knee-to-wall ankle mobility test">
 <div class="demo-section-title">🥋 High-Kick Mobility</div>
+<div class="demo-note"><b>Test standard:</b> both legs • no jumping • no external assistance.</div>
 <img class="demo-image" src="assets/front_kick_demo.png" alt="Front kick mobility demo showing chamber and nose-height pass position">
 <img class="demo-image" src="assets/side_kick_demo.png" alt="Side kick mobility demo showing chamber and shoulder-height pass position">
-<div class="demo-note"><b>High-Kick Mobility:</b> test both legs. No jumping or external assistance.</div>
 
 <div class="demo-section-title">🦘 Jumps, Landings &amp; Plyometrics</div>
 <img class="demo-image" src="assets/jumps_plyometrics_demo.png" alt="Level 17 jumps and landings and Level 18 plyometrics exercise demonstration infographic">
