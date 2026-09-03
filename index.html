@@ -1,8 +1,8 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0c1118"><title>Fitness Level Up</title>
 <link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=electric3">
-<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=electric3">
-<link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png?v=electric3">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=final7">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=final7">
+<link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png?v=final7">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Fitness Level Up">
@@ -624,23 +624,52 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 .card,.exercise,.level-card,.glossary-card,.kick-card,.demo-note,.cardio-panel{
   background:linear-gradient(145deg,rgba(18,31,45,.98),rgba(8,17,27,.99))!important;
 }
+
+/* ===== FINAL IPHONE / ELECTRIC HUD PASS ===== */
+:root{--accent:#22B8FF!important;--neon:#22B8FF!important;--neon2:#35C8FF!important;--warn:#22B8FF!important;--gold:#22B8FF!important}
+.levelup-mark{filter:drop-shadow(0 0 10px rgba(34,184,255,.52))!important}
+.levelup-wordmark strong{color:#35C8FF!important;text-shadow:0 0 14px rgba(34,184,255,.48)!important}
+.levelup-wordmark span{color:#F5FAFF!important}
+.hero .big{color:#F8FBFF!important}
+.hero .char-image{margin:12px 0 10px!important;height:230px!important;border-color:rgba(34,184,255,.44)!important;box-shadow:0 0 20px rgba(34,184,255,.08)!important}
+.hero .meta{font-size:12px!important;color:#35C8FF!important;margin:0 0 7px!important}
+.card>h2{color:#35C8FF!important;text-shadow:0 0 12px rgba(34,184,255,.12)!important}
+.benchmark-label{min-height:44px!important;margin-bottom:8px!important}
+.benchmark-label span{display:block!important;color:#F8FBFF!important;font-size:12px!important;line-height:1.15!important;font-weight:850!important}
+.benchmark-label small{display:block!important;color:#35C8FF!important;font-size:9.5px!important;line-height:1.15!important;font-weight:750!important;margin-top:4px!important;letter-spacing:.01em!important}
+.glossary-card summary{color:#F7FAFE!important;position:relative;padding-left:20px!important}
+.glossary-card summary:before{content:'';position:absolute;left:9px;top:50%;transform:translateY(-50%);width:3px;height:22px;border-radius:99px;background:#22B8FF;box-shadow:0 0 10px rgba(34,184,255,.42)}
+.glossary-card[open] summary{color:#35C8FF!important}
+.definition h4,.definition .glossary-label,.demo-section-title{color:#35C8FF!important}
+.definition li::marker,.kick-list li::marker{color:#22B8FF!important}
+.rankings-intro{color:#A9B6C6;font-size:12px;line-height:1.5;margin:0 0 14px}
+.section-kicker{font-size:10px;letter-spacing:.13em;color:#35C8FF;font-weight:900;margin-bottom:5px}
+.mini span{color:#35C8FF!important;font-size:10.5px!important}
+.mini b{color:#F8FBFF!important}
+.mini em{color:#A9B6C6!important}
+.bottom-tabs-inner{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:2px!important}
+.tab-btn{height:54px!important;font-size:8.5px!important;gap:3px!important;padding:3px 2px!important;flex-direction:column!important;line-height:1.05!important}
+.tab-btn .tab-icon{font-size:15px!important}
+.bottom-tabs .tab-btn.active{color:#FFFFFF!important;border-color:#22B8FF!important;box-shadow:0 0 15px rgba(34,184,255,.20)!important}
+.glossary-illustration img,.demo-image{width:100%!important;height:auto!important;object-fit:contain!important}
+@media(max-width:430px){.wrap{padding-left:12px!important;padding-right:12px!important}.weights-grid{gap:9px!important}.weights-grid .exercise{padding:10px!important}.hero .char-image{height:220px!important}.definition{padding:11px!important}.bottom-tabs{padding-left:6px!important;padding-right:6px!important}}
 </style></head><body>
 <header class="levelup-header">
   <div class="levelup-brand">
-    <img src="assets/level_up_never_settle.png" alt="" class="levelup-mark">
+    <img src="assets/level_up_logo_electric_blue.png" alt="" class="levelup-mark">
     <div class="levelup-wordmark"><span>LEVEL</span><strong>UP</strong></div>
   </div></header><div class="wrap">
 <div id="progressView" class="tab-view active">
-<div class="card hero"><div class="eyebrow">Current strength level</div><div id="currentChar" class="big">Green Arrow</div><div id="currentMeta" class="meta">Level 1 • Foundation</div><img id="currentImage" class="char-image" alt="Current character"><div class="progress"><div id="bar" class="bar"></div></div><div id="nextBox" class="nextbox">Enter your current bests below, then tap Calculate Rankings.</div></div>
+<div class="card hero"><div class="eyebrow">Current strength level</div><div id="currentChar" class="big">Green Arrow</div><img id="currentImage" class="char-image show" src="assets/01_green_arrow.jpeg" alt="Green Arrow"><div id="currentMeta" class="meta">Level 1 • Foundation</div><div class="progress"><div id="bar" class="bar"></div></div><div id="nextBox" class="nextbox">Enter your current bests below, then tap Calculate Rankings.</div></div>
 
 <div class="card"><h2>Your Fitness Benchmarks</h2><div class="notice">✓ All fields stay visible. Ranking reads the numbers directly from the boxes.</div>
-<div class="weights-grid"><div class="exercise"><label>Hack squat (kg ×8)</label><input id="hack" type="number" inputmode="decimal" step=".5"><div id="st_hack" class="status">Enter your current best</div></div>
-<div class="exercise"><label>Horizontal leg press (kg ×8)</label><input id="leg" type="number" inputmode="decimal" step=".5"><div id="st_leg" class="status">Enter your current best</div></div>
-<div class="exercise"><label>Single-leg press (kg ×8 each leg)</label><input id="single" type="number" inputmode="decimal" step=".5"><div id="st_single" class="status">Enter your current best</div></div>
-<div class="exercise"><label>Smith hip thrust (kg ×8)</label><input id="hip" type="number" inputmode="decimal" step=".5"><div id="st_hip" class="status">Enter your current best</div></div>
-<div class="exercise"><label>Chest press (kg ×8)</label><input id="chest" type="number" inputmode="decimal" step=".5"><div id="st_chest" class="status">Enter your current best</div></div>
-<div class="exercise"><label>Seated row (kg ×8)</label><input id="row" type="number" inputmode="decimal" step=".5"><div id="st_row" class="status">Enter your current best</div></div>
-<div class="exercise"><label>Lat pulldown (kg ×8)</label><input id="pull" type="number" inputmode="decimal" step=".5"><div id="st_pull" class="status">Enter your current best</div></div></div>
+<div class="weights-grid"><div class="exercise"><label class="benchmark-label"><span>Hack squat</span><small>(kg × 8 reps)</small></label><input id="hack" type="number" inputmode="decimal" step=".5"><div id="st_hack" class="status">Enter your current best</div></div>
+<div class="exercise"><label class="benchmark-label"><span>Horizontal leg press</span><small>(kg × 8 reps)</small></label><input id="leg" type="number" inputmode="decimal" step=".5"><div id="st_leg" class="status">Enter your current best</div></div>
+<div class="exercise"><label class="benchmark-label"><span>Single-leg press</span><small>(kg × 8 reps each leg)</small></label><input id="single" type="number" inputmode="decimal" step=".5"><div id="st_single" class="status">Enter your current best</div></div>
+<div class="exercise"><label class="benchmark-label"><span>Smith hip thrust</span><small>(kg × 8 reps)</small></label><input id="hip" type="number" inputmode="decimal" step=".5"><div id="st_hip" class="status">Enter your current best</div></div>
+<div class="exercise"><label class="benchmark-label"><span>Chest press</span><small>(kg × 8 reps)</small></label><input id="chest" type="number" inputmode="decimal" step=".5"><div id="st_chest" class="status">Enter your current best</div></div>
+<div class="exercise"><label class="benchmark-label"><span>Seated row</span><small>(kg × 8 reps)</small></label><input id="row" type="number" inputmode="decimal" step=".5"><div id="st_row" class="status">Enter your current best</div></div>
+<div class="exercise"><label class="benchmark-label"><span>Lat pulldown</span><small>(kg × 8 reps)</small></label><input id="pull" type="number" inputmode="decimal" step=".5"><div id="st_pull" class="status">Enter your current best</div></div></div>
 
 <div class="exercise"><label>Chin-up / assisted chin-up</label><div class="chin-grid"><button id="assistBtn" type="button">Assisted</button><button id="bwBtn" type="button">Bodyweight</button><button id="weightedBtn" type="button">Weighted</button></div>
 <div id="assistBox" class="two"><div><label>Assistance kg</label><input id="chinAssist" type="number" inputmode="decimal" step=".5"></div><div><label>Reps</label><input id="chinRepsA" type="number" inputmode="numeric"></div></div>
@@ -684,9 +713,6 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 
 <button id="calcBtn" type="button" class="primary">Calculate Rankings</button><div id="calcStatus" class="calc-status"></div></div>
 
-<div class="card"><h2>Exercise levels</h2><div id="summary" class="summary-grid">
-<div class="mini"><span>Hack squat</span><b>Not ranked</b></div><div class="mini"><span>Leg press</span><b>Not ranked</b></div><div class="mini"><span>Single-leg press</span><b>Not ranked</b></div><div class="mini"><span>Hip thrust</span><b>Not ranked</b></div><div class="mini"><span>Chest press</span><b>Not ranked</b></div><div class="mini"><span>Seated row</span><b>Not ranked</b></div><div class="mini"><span>Lat pulldown</span><b>Not ranked</b></div><div class="mini"><span>Chin-up</span><b>Not ranked</b></div><div class="mini"><span>Cardio</span><b>Not ranked</b></div></div></div>
-
 </div>
 <div id="levelsView" class="tab-view">
 <div class="card"><h2>All level requirements</h2><section><h3>Foundation</h3><details class="level-card" data-level="1"><summary><span class="level-summary-left"><span class="level-dot" aria-hidden="true"></span><span class="level-text"><b>Level 1 — Green Arrow</b><small>Weight training + incline walking</small></span></span><span class="chev">⌄</span></summary><div class="reqs"><img src="assets/01_green_arrow.jpeg" alt="Level 1 character" style="width:100%;max-height:250px;object-fit:cover;object-position:center;border-radius:10px;margin:6px 0 10px">
@@ -716,6 +742,10 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
         <div><span>Hack squat</span><b>270 kg ×8</b></div><div><span>Leg press</span><b>270 kg ×8</b></div><div><span>Single-leg press</span><b>145 kg ×8 each</b></div><div><span>Hip thrust</span><b>135 kg ×8</b></div><div><span>Chest press</span><b>113 kg ×8</b></div><div><span>Seated row</span><b>120 kg ×8</b></div><div><span>Lat pulldown</span><b>125 kg ×8</b></div><div><span>Chin-up</span><b>Bodyweight × 15</b></div><div><span>5K</span><b>≤25 min</b></div></div></details></section><section><h3>Endgame+</h3><details class="level-card" data-level="25"><summary><span class="level-summary-left"><span class="level-dot" aria-hidden="true"></span><span class="level-text"><b>Level 25 — Gohan</b><small>Weight training + 5K / 10K</small></span></span><span class="chev">⌄</span></summary><div class="reqs"><img src="assets/25_gohan_cell_saga.png" alt="Level 25 — Gohan" style="width:100%;max-height:250px;object-fit:cover;object-position:center;border-radius:10px;margin:6px 0 10px">
         <div><span>Hack squat</span><b>275 kg ×8</b></div><div><span>Leg press</span><b>275 kg ×8</b></div><div><span>Single-leg press</span><b>150 kg ×8 each</b></div><div><span>Hip thrust</span><b>140 kg ×8</b></div><div><span>Chest press</span><b>116 kg ×8</b></div><div><span>Seated row</span><b>125 kg ×8</b></div><div><span>Lat pulldown</span><b>130 kg ×8</b></div><div><span>Chin-up</span><b>+15 kg × 10</b></div><div><span>5K</span><b>≤23:30</b></div><div><span>10K</span><b>≤55 min</b></div></div></details></section><section><h3>Ultimate</h3><details class="level-card" data-level="26"><summary><span class="level-summary-left"><span class="level-dot" aria-hidden="true"></span><span class="level-text"><b>Level 26 — Future Trunks</b><small>Weight training + 5K / 10K</small></span></span><span class="chev">⌄</span></summary><div class="reqs"><img src="assets/26_future_trunks.png" alt="Level 26 — Future Trunks" style="width:100%;max-height:250px;object-fit:cover;object-position:center;border-radius:10px;margin:6px 0 10px">
         <div><span>Hack squat</span><b>280 kg ×8</b></div><div><span>Leg press</span><b>280 kg ×8</b></div><div><span>Single-leg press</span><b>155 kg ×8 each</b></div><div><span>Hip thrust</span><b>150 kg ×8</b></div><div><span>Chest press</span><b>120 kg ×8</b></div><div><span>Seated row</span><b>130 kg ×8</b></div><div><span>Lat pulldown</span><b>135 kg ×8</b></div><div><span>Chin-up</span><b>+25 kg × 10</b></div><div><span>5K</span><b>≤22:30</b></div><div><span>10K</span><b>≤50 min</b></div></div></details></section></div></div></div>
+<div id="rankingsView" class="tab-view">
+<div class="card rankings-card"><div class="section-kicker">YOUR CURRENT BENCHMARKS</div><h2>Rankings</h2><p class="rankings-intro">See the character level reached by each individual benchmark. Update your results in My Progress, then tap Calculate Rankings.</p><div id="summary" class="summary-grid">
+<div class="mini"><span>Hack squat</span><b>Not ranked</b></div><div class="mini"><span>Leg press</span><b>Not ranked</b></div><div class="mini"><span>Single-leg press</span><b>Not ranked</b></div><div class="mini"><span>Hip thrust</span><b>Not ranked</b></div><div class="mini"><span>Chest press</span><b>Not ranked</b></div><div class="mini"><span>Seated row</span><b>Not ranked</b></div><div class="mini"><span>Lat pulldown</span><b>Not ranked</b></div><div class="mini"><span>Chin-up</span><b>Not ranked</b></div><div class="mini"><span>Cardio</span><b>Not ranked</b></div></div></div>
+</div>
 <div id="glossaryView" class="tab-view">
 <div class="card"><h2>Glossary</h2><div class="notice">Your rulebook for the movement and fighting requirements used in Levels.</div>
 
@@ -733,7 +763,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_hamstring.png" alt="Hamstring Mobility visual example"></div>
+<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/hamstring_forward_fold_near_floor.svg" alt="Hamstring Mobility visual example"></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Enough posterior-chain range to hinge toward the floor comfortably.</li>
@@ -745,7 +775,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Flexibility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_flexibility.svg" alt="Standing forward fold showing palms reaching the floor"></div>
+<details class="glossary-card"><summary>Flexibility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/flexibility_forward_fold_approved.png" alt="Standing forward fold showing palms reaching the floor"></div>
 <div class="glossary-label">Level target</div>
 <ul>
 <li>Palms flat on the floor.</li>
@@ -754,7 +784,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_hip_ankle.png" alt="90/90 hip rotation and knee-to-wall ankle mobility tests"></div><h4>What it means</h4><ul><li><b>Hip mobility:</b> use the 90/90 position on both sides to check controlled internal and external hip rotation.</li><li><b>Ankle mobility:</b> use a knee-to-wall test to check ankle dorsiflexion.</li></ul><h4>How to test the ankle</h4><ul><li>Face a wall with the test foot flat and pointing forward.</li><li>Drive the knee forward until it touches the wall while keeping the heel completely down.</li><li>Move the foot gradually farther from the wall and repeat.</li><li>The test is about how far the knee can travel over the toes without the heel lifting or the foot collapsing inward.</li><li>Repeat on both sides and compare control and range.</li></ul><h4>Level 15 pass</h4><ul><li>Complete the 90/90 hip position comfortably on both sides.</li><li>Knee reaches the wall on both sides with heel flat, foot controlled and no major compensation.</li></ul></div></details>
+<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/hip_ankle_tests_corrected.svg" alt="90/90 hip rotation and knee-to-wall ankle mobility tests"></div><h4>What it means</h4><ul><li><b>Hip mobility:</b> use the 90/90 position on both sides to check controlled internal and external hip rotation.</li><li><b>Ankle mobility:</b> use a knee-to-wall test to check ankle dorsiflexion.</li></ul><h4>How to test the ankle</h4><ul><li>Face a wall with the test foot flat and pointing forward.</li><li>Drive the knee forward until it touches the wall while keeping the heel completely down.</li><li>Start with the toes about <b>10 cm from the wall</b>. If the knee cannot touch without the heel lifting, move the foot slightly closer and repeat.</li><li>The test is about how far the knee can travel over the toes without the heel lifting or the foot collapsing inward.</li><li>Repeat on both sides and compare control and range.</li></ul><h4>Level 15 pass</h4><ul><li>Complete the 90/90 hip position comfortably on both sides.</li><li>Aim for approximately <b>10 cm toe-to-wall</b> on both sides: knee touches the wall, heel stays flat, foot remains controlled and there is no major compensation.</li></ul></div></details>
 
 <details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_high_kick.png" alt="High-Kick Mobility visual example"></div>
 <div class="glossary-label">What it means</div>
@@ -777,7 +807,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_jumps_landings.png" alt="Jumps & Landings visual example"></div>
+<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition"><div class="glossary-illustration"><img src="assets/level17_jumps_landings_portrait.png" alt="Jumps & Landings visual example"></div>
 <div class="glossary-label">Level 17 — Control</div>
 <ul>
 <li>10 squat jumps.</li>
@@ -796,7 +826,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Plyometrics</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_plyometrics.png" alt="Plyometrics visual example"></div>
+<details class="glossary-card"><summary>Plyometrics</summary><div class="definition"><div class="glossary-illustration"><img src="assets/level18_plyometrics_portrait.png" alt="Plyometrics visual example"></div>
 <div class="glossary-label">Level 18 — Explosiveness &amp; Reactivity</div>
 <ul>
 <li>10 continuous pogo jumps.</li>
@@ -824,7 +854,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition"><h4>Rough belt equivalent</h4><ul><li><b>Karate:</b> roughly green to blue belt.</li><li><b>Taekwondo:</b> roughly green/blue to red belt, depending on school.</li><li><b>Kung fu:</b> no universal belt system; think established intermediate student with solid fundamentals, combinations and controlled technique.</li></ul><p class="glossary-note">Belt colours vary substantially by organisation and school, so use your instructor’s progression standard where practical.</p>
+<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition"><h4>Rough belt equivalent</h4><ul><li><b>Karate:</b> roughly green to blue belt.</li><li><b>Taekwondo:</b> roughly green to blue belt.</li><li><b>Kung Fu:</b> intermediate / green–blue equivalent where belts or sashes are used.</li></ul><p class="glossary-note">Belt colours vary substantially by organisation and school, so use your instructor’s progression standard where practical.</p>
 <div class="glossary-label">Requirement</div>
 <ul>
 <li>Progress beyond the beginner milestone.</li>
@@ -888,9 +918,12 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   <div class="kick-pass">✓ <b>Pass:</b> striking foot reaches your own <strong>shoulder height</strong> with control and no external assistance.</div>
 </div>
 
-<div class="demo-section-title">🦘 Jumps, Landings &amp; Plyometrics</div>
-<img class="demo-image" src="assets/jumps_plyometrics_demo.png" alt="Level 17 jumps and landings and Level 18 plyometrics exercise demonstration infographic">
-<div class="demo-note"><b>Level 17:</b> prioritise landing control. <b>Level 18:</b> add explosiveness and reactivity while keeping that control.</div>
+<div class="demo-section-title">🦘 Jumps &amp; Landings — Level 17</div>
+<img class="demo-image" src="assets/level17_jumps_landings_portrait.png" alt="Level 17 jumps and landings movement guide">
+<div class="demo-note"><b>Level 17:</b> prioritise control, quiet stable landings, knee tracking and no recovery steps.</div>
+<div class="demo-section-title">⚡ Plyometrics — Level 18</div>
+<img class="demo-image" src="assets/level18_plyometrics_portrait.png" alt="Level 18 plyometrics movement guide">
+<div class="demo-note"><b>Level 18:</b> build explosiveness and reactivity while maintaining landing control and consistent technique.</div>
 </div>
 </div>
 <nav class="bottom-tabs" aria-label="App sections">
@@ -899,6 +932,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
       <span class="tab-icon">🏋️</span><span>My Progress</span>
     </button>
     <button id="levelsTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">⚡</span><span>Levels</span></button>
+    <button id="rankingsTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">🏆</span><span>Rankings</span></button>
     <button id="glossaryTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">📖</span><span>Glossary</span></button>
     <button id="demosTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">🎬</span><span>Demos</span></button>
   </div>
@@ -906,8 +940,8 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 
 <script>
 
-const tabViews={progress:document.getElementById('progressView'),levels:document.getElementById('levelsView'),glossary:document.getElementById('glossaryView'),demos:document.getElementById('demosView')};
-const tabBtns={progress:document.getElementById('progressTabBtn'),levels:document.getElementById('levelsTabBtn'),glossary:document.getElementById('glossaryTabBtn'),demos:document.getElementById('demosTabBtn')};
+const tabViews={progress:document.getElementById('progressView'),levels:document.getElementById('levelsView'),rankings:document.getElementById('rankingsView'),glossary:document.getElementById('glossaryView'),demos:document.getElementById('demosView')};
+const tabBtns={progress:document.getElementById('progressTabBtn'),levels:document.getElementById('levelsTabBtn'),rankings:document.getElementById('rankingsTabBtn'),glossary:document.getElementById('glossaryTabBtn'),demos:document.getElementById('demosTabBtn')};
 function switchAppTab(tab){
   if(!tabViews[tab]) tab='progress';
   Object.entries(tabViews).forEach(([key,view])=>view.classList.toggle('active',key===tab));
@@ -988,7 +1022,7 @@ function chinLevel(d){
 
 
 function cardioLevel(d){
-  if(d.cardioMode==='incline'){
+  if(d.cardioMode==='incline' || d.cardioMode==='stairs'){
     const km=Number(d.cardioInclineKm)||0, stairs=Number(d.cardioStairs)||0;
     let out=0;
     const early=[[1,.80,0],[2,.85,0],[3,.90,0],[4,.95,0],[5,1.00,400],[6,1.05,500],[7,1.10,600],[8,1.15,700],[9,1.20,800]];

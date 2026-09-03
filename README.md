@@ -1,33 +1,19 @@
-# Harry Potter Fitness RPG — Phase 3 UX Upgrade
+# LEVEL UP — GitHub Pages Build
 
-This build consolidates the latest review feedback into one GitHub Pages / iPhone PWA update.
+Character Fitness RPG / benchmark progression app.
 
-## Major changes
-- Weekly Missions → Daily Missions → Sleep order on Today
-- Sauna moved to Weekly Missions: 5 credits/week; 30 min = 1 credit; 60 min = 2 credits with no second same-day XP payment
-- 11 yes/no daily habits in the agreed sequence
-- one-tap habit completion with no Continue popup
-- celebratory Perfect Routine / Perfect Day dashboard state
-- status/reward zone visually separated from mission input zone
-- collectible level-up/reveal animation + generated sound effects
-- Journey rebuilt as a mobile magical map with book regions and 24 nodes per book
-- Collection rebuilt as six themed galleries, then filtered by Year/Book
-- Stats rebuilt as an executive-style visual dashboard with 7-day chart and mission bars
-- Settings cleaned to App/Data/Preferences only
-- reset/test XP tools hidden unless URL includes `?dev=1`
-- network-first service worker cache bumped to v3.0.0
+## Upload
+Upload **all files and the `assets` folder in this package** to the root of the `-fitness-rpg` GitHub repository, replacing the previous app files.
 
-## GitHub update
-Upload/replace these files in the repository root, then commit to `main`:
-- `app.js`
-- `index.html`
-- `styles.css`
-- `service-worker.js`
-- `manifest.webmanifest`
-- `habit-config.json`
-- `README.md`
+## Included in this build
+- 5 tabs: My Progress, Levels, Rankings, Glossary, Demos
+- 26 character levels
+- 7 weighted benchmarks + chin-up + cardio ranking
+- separate Incline Walk, StairMaster, Run Distance and 5K inputs
+- electric-blue LEVEL UP theme and PWA icons
+- current-level character image on My Progress
+- corrected hamstring, flexibility, hip/ankle mobility visuals
+- separate Level 17 Jumps & Landings and Level 18 Plyometrics visual guides
+- martial-arts beginner/intermediate/sparring glossary text without unnecessary images
 
-Your `levels.json`, `collectibles.json`, `reward-events.json`, `identity-rules.json`, `game-config.json` and icon files do not need replacing for this update.
-
-## Artwork
-This build uses themed illustrated placeholders/sigils for collectible cards. Real collectible artwork can be added later without changing the progression engine.
+The app saves results locally on the device.
