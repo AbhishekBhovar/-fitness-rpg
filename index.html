@@ -579,6 +579,51 @@ h2,h3,.definition h4,.demo-section-title,.glossary-card summary{color:#35C8FF!im
 h3:after{background:#22B8FF!important}.level-dot{border-color:#22B8FF!important}.level-dot.done{background:#22B8FF!important;box-shadow:0 0 10px rgba(34,184,255,.5)!important}
 button.active,.tab.active{border-color:#35C8FF!important;box-shadow:0 0 16px rgba(34,184,255,.28)!important}.definition li::marker{color:#35C8FF!important}
 .glossary-illustration{border-color:#245f86!important;box-shadow:0 0 18px rgba(34,184,255,.10)!important}
+
+/* ===== BALANCED ELECTRIC BLUE + WHITE HIERARCHY ===== */
+:root{
+  --accent:#22B8FF!important;
+  --accent-bright:#35C8FF!important;
+  --text:#F7FAFF!important;
+  --muted:#AAB7C6!important;
+  --line:#29465F!important;
+}
+/* Primary titles should read as white; blue is an accent, not a wash. */
+h2,.big,.glossary-card summary,.level-card summary b,.kick-title{
+  color:var(--text)!important;
+  text-shadow:none!important;
+}
+/* Keep structural / progression accents electric blue. */
+h3,.definition h4,.definition .glossary-label,.demo-section-title,.meta,.mini em{
+  color:var(--accent-bright)!important;
+}
+h3:after{background:linear-gradient(90deg,var(--accent),rgba(53,200,255,.15))!important}
+/* Secondary explanatory copy is neutral grey, not cyan. */
+.notice,.definition,.glossary-note,.nextbox,.cardio-help,.reqs span,.eyebrow{
+  color:var(--muted)!important;
+}
+/* Success remains semantic green. */
+.calc-status.good,.status.good,.kick-pass b{color:#62D8A5!important}
+/* Benchmark heading and current character regain strong white hierarchy. */
+#progressView .card>h2,#currentChar{color:var(--text)!important}
+#currentMeta{color:var(--accent-bright)!important}
+/* Glossary list: white names, subtle borders, blue only on open/active state. */
+.glossary-card{border-color:rgba(83,122,153,.42)!important}
+.glossary-card summary{background:rgba(6,15,24,.10)!important}
+.glossary-card[open]{border-color:var(--accent)!important;box-shadow:0 0 0 1px rgba(34,184,255,.10),0 0 18px rgba(34,184,255,.08)!important}
+.glossary-card[open] summary{color:var(--text)!important}
+.definition li::marker{color:var(--accent-bright)!important}
+/* Buttons: dark neutral base, electric blue only for selected/primary. */
+button:not(.primary):not(.tab-btn){color:var(--text)!important}
+button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 0 14px rgba(34,184,255,.20)!important}
+/* Bottom nav: white selected label, muted inactive labels, blue outline/icon emphasis. */
+.bottom-nav .tab-btn{color:#AAB7C6!important}
+.bottom-nav .tab-btn.active{color:#FFFFFF!important;background:rgba(24,44,64,.92)!important;border:1px solid var(--accent)!important;box-shadow:0 0 14px rgba(34,184,255,.18)!important}
+.bottom-nav .tab-btn.active .tab-icon{filter:drop-shadow(0 0 5px rgba(34,184,255,.55))}
+/* Cards stay navy/charcoal rather than blue-tinted. */
+.card,.exercise,.level-card,.glossary-card,.kick-card,.demo-note,.cardio-panel{
+  background:linear-gradient(145deg,rgba(18,31,45,.98),rgba(8,17,27,.99))!important;
+}
 </style></head><body>
 <header class="levelup-header">
   <div class="levelup-brand">
