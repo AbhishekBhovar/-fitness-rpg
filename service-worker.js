@@ -1,5 +1,5 @@
 const PREFIX='level-up-fitness-';
-const CACHE=PREFIX+'v2026-09-04-final7';
+const CACHE=PREFIX+'v2026-09-04-fixpass8';
 self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
