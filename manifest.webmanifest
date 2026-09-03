@@ -1,0 +1,23 @@
+{
+  "name": "Level Up",
+  "short_name": "Level Up",
+  "description": "A fitness and lifestyle progression RPG with weekly missions, daily routine, sleep progression, 168 story levels and 385 collectibles.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090e15",
+  "theme_color": "#090e15",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
