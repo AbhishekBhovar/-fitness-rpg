@@ -446,14 +446,84 @@ input:focus{
   .levelup-wordmark{letter-spacing:.5px}
 }
 
+
+/* ===== iPhone safe-area header fix ===== */
+.levelup-header{
+  padding-top:max(24px, calc(env(safe-area-inset-top) + 18px))!important;
+  padding-bottom:16px!important;
+  min-height:112px!important;
+  overflow:visible!important;
+}
+.levelup-brand{
+  min-height:52px;
+  align-items:center!important;
+}
+.levelup-mark{
+  width:50px!important;
+  height:50px!important;
+  flex:0 0 50px;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+.levelup-wordmark{
+  font-size:30px!important;
+}
+@media(max-width:430px){
+  .levelup-header{
+    padding-top:max(26px, calc(env(safe-area-inset-top) + 16px))!important;
+    padding-left:22px!important;
+  }
+  .levelup-mark{width:46px!important;height:46px!important;flex-basis:46px}
+  .levelup-wordmark{font-size:28px!important}
+}
+
+/* ===== Simple glossary sketch cards ===== */
+.glossary-sketch{
+  width:100%;
+  max-width:300px;
+  margin:12px auto 16px;
+  padding:10px 12px;
+  border:1px solid rgba(114,217,255,.28);
+  border-radius:14px;
+  background:linear-gradient(145deg,rgba(8,18,29,.72),rgba(10,25,38,.9));
+}
+.glossary-sketch svg{
+  display:block;
+  width:100%;
+  height:112px;
+}
+.glossary-sketch .sketch-line{
+  stroke:#71d8ff;
+  stroke-width:3.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+.glossary-sketch .sketch-accent{
+  stroke:#61e3b2;
+  stroke-width:3.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+.glossary-sketch .sketch-fill{
+  fill:#61e3b2;
+  opacity:.12;
+  stroke:#61e3b2;
+  stroke-width:2.4;
+}
+.glossary-sketch .sketch-label{
+  fill:#a9bed0;
+  font-size:10px;
+  font-family:"Avenir Next","SF Pro Text",sans-serif;
+}
+
 </style></head><body>
 <header class="levelup-header">
   <div class="levelup-brand">
     <img src="assets/level_up_never_settle.png" alt="" class="levelup-mark">
     <div class="levelup-wordmark"><span>LEVEL</span><strong>UP</strong></div>
-  </div>
-  <small>Enter all results, then tap Calculate Rankings</small>
-</header><div class="wrap">
+  </div></header><div class="wrap">
 <div id="progressView" class="tab-view active">
 <div class="card hero"><div class="eyebrow">Current strength level</div><div id="currentChar" class="big">Green Arrow</div><div id="currentMeta" class="meta">Level 1 • Foundation</div><img id="currentImage" class="char-image" alt="Current character"><div class="progress"><div id="bar" class="bar"></div></div><div id="nextBox" class="nextbox">Enter your current bests below, then tap Calculate Rankings.</div></div>
 
@@ -543,7 +613,15 @@ input:focus{
 <div id="glossaryView" class="tab-view">
 <div class="card"><h2>Glossary</h2><div class="notice">Your rulebook for the movement and fighting requirements used in Levels.</div>
 
-<details class="glossary-card"><summary>Deep Squat</summary><div class="definition">
+<details class="glossary-card"><summary>Deep Squat</summary><div class="definition"><div class="glossary-sketch" aria-label="Deep squat sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="110" cy="20" r="10"/>
+  <path class="sketch-line" d="M110 30 L110 52 L92 66 M110 52 L128 66"/>
+  <path class="sketch-accent" d="M92 66 L72 86 L94 88 M128 66 L148 86 L126 88"/>
+  <path class="sketch-line" d="M110 40 L88 48 M110 40 L132 48"/>
+  <path class="sketch-line" d="M54 91 H166"/>
+  <text class="sketch-label" x="78" y="106">hips below knees</text>
+</svg></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Comfortable full-depth squat.</li>
@@ -557,7 +635,15 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition">
+<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition"><div class="glossary-sketch" aria-label="Hamstring mobility sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="102" cy="20" r="9"/>
+  <path class="sketch-line" d="M101 29 L92 48 L76 63"/>
+  <path class="sketch-line" d="M76 63 L74 92 M76 63 L114 90"/>
+  <path class="sketch-accent" d="M92 48 L70 72 L62 90"/>
+  <path class="sketch-line" d="M62 94 H126"/>
+  <text class="sketch-label" x="128" y="91">hinge</text>
+</svg></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Enough posterior-chain range to hinge toward the floor comfortably.</li>
@@ -569,7 +655,15 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Flexibility</summary><div class="definition">
+<details class="glossary-card"><summary>Flexibility</summary><div class="definition"><div class="glossary-sketch" aria-label="Standing forward fold sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="106" cy="18" r="9"/>
+  <path class="sketch-line" d="M106 27 C100 39 88 50 76 60"/>
+  <path class="sketch-accent" d="M76 60 L72 91 M76 60 L100 91"/>
+  <path class="sketch-line" d="M90 45 L72 80 M90 45 L101 82"/>
+  <path class="sketch-line" d="M54 95 H116"/>
+  <text class="sketch-label" x="120" y="92">palms to floor</text>
+</svg></div>
 <div class="glossary-label">Level target</div>
 <ul>
 <li>Palms flat on the floor.</li>
@@ -578,7 +672,18 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition">
+<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition"><div class="glossary-sketch" aria-label="Hip and ankle mobility sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="58" cy="28" r="8"/>
+  <path class="sketch-line" d="M58 36 L58 57 L42 70 M58 57 L78 72"/>
+  <path class="sketch-accent" d="M42 70 L28 91 M78 72 L91 91"/>
+  <path class="sketch-line" d="M118 91 H194 M172 91 V34"/>
+  <path class="sketch-line" d="M146 44 L146 66 L132 82 M146 66 L165 84"/>
+  <circle class="sketch-line" cx="146" cy="35" r="7"/>
+  <path class="sketch-accent" d="M165 84 L181 84 M181 84 L188 64"/>
+  <text class="sketch-label" x="20" y="107">hip rotation</text>
+  <text class="sketch-label" x="132" y="107">knee-to-wall</text>
+</svg></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Strong, usable range through the hips and ankles.</li>
@@ -593,7 +698,16 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition">
+<details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition"><div class="glossary-sketch" aria-label="High kick mobility sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="78" cy="27" r="8"/>
+  <path class="sketch-line" d="M78 35 L78 61 L66 90"/>
+  <path class="sketch-line" d="M78 47 L60 55 M78 47 L94 53"/>
+  <path class="sketch-accent" d="M78 61 L139 38"/>
+  <path class="sketch-line" d="M139 38 L162 38"/>
+  <path class="sketch-accent" d="M42 27 H174" stroke-dasharray="5 5"/>
+  <text class="sketch-label" x="150" y="22">target height</text>
+</svg></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Active range of motion for useful martial-arts kicking positions.</li>
@@ -614,7 +728,16 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition">
+<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition"><div class="glossary-sketch" aria-label="Jump and landing sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="76" cy="31" r="7"/>
+  <path class="sketch-line" d="M76 38 L76 57 M76 45 L61 53 M76 45 L91 53"/>
+  <path class="sketch-line" d="M76 57 L62 72 M76 57 L91 71"/>
+  <path class="sketch-accent" d="M108 77 C120 62 132 62 144 77"/>
+  <path class="sketch-line" d="M144 77 L132 91 M144 77 L157 91"/>
+  <path class="sketch-line" d="M46 96 H174"/>
+  <text class="sketch-label" x="92" y="108">jump → stick landing</text>
+</svg></div>
 <div class="glossary-label">Level 17 — Control</div>
 <ul>
 <li>10 squat jumps.</li>
@@ -633,7 +756,14 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Plyometrics</summary><div class="definition">
+<details class="glossary-card"><summary>Plyometrics</summary><div class="definition"><div class="glossary-sketch" aria-label="Plyometric repeated jumps sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <path class="sketch-accent" d="M35 84 Q55 46 75 84 Q95 46 115 84 Q135 46 155 84 Q175 46 195 84"/>
+  <circle class="sketch-line" cx="114" cy="29" r="7"/>
+  <path class="sketch-line" d="M114 36 L114 56 M114 44 L100 50 M114 44 L128 50"/>
+  <path class="sketch-line" d="M114 56 L102 70 M114 56 L127 70"/>
+  <text class="sketch-label" x="67" y="106">quick repeated spring</text>
+</svg></div>
 <div class="glossary-label">Level 18 — Explosiveness &amp; Reactivity</div>
 <ul>
 <li>10 continuous pogo jumps.</li>
@@ -652,7 +782,14 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Martial Arts — Beginner</summary><div class="definition">
+<details class="glossary-card"><summary>Martial Arts — Beginner</summary><div class="definition"><div class="glossary-sketch" aria-label="Beginner martial arts stance sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="110" cy="23" r="8"/>
+  <path class="sketch-line" d="M110 31 L110 58 M110 42 L91 50 M110 42 L130 49"/>
+  <path class="sketch-accent" d="M110 58 L87 88 M110 58 L139 83"/>
+  <path class="sketch-line" d="M83 91 H145"/>
+  <text class="sketch-label" x="78" y="106">guard + stance</text>
+</svg></div>
 <div class="glossary-label">Requirement</div>
 <ul>
 <li>Train in a recognised martial art.</li>
@@ -661,7 +798,15 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition">
+<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition"><div class="glossary-sketch" aria-label="Intermediate martial arts technique sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="89" cy="28" r="8"/>
+  <path class="sketch-line" d="M89 36 L89 59 M89 44 L69 52 M89 44 L107 49"/>
+  <path class="sketch-line" d="M89 59 L72 88"/>
+  <path class="sketch-accent" d="M89 59 L145 50"/>
+  <path class="sketch-accent" d="M141 44 L151 50 L141 56"/>
+  <text class="sketch-label" x="70" y="106">controlled technique</text>
+</svg></div>
 <div class="glossary-label">Requirement</div>
 <ul>
 <li>Progress beyond the beginner milestone.</li>
@@ -670,7 +815,14 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Sparring — Competent</summary><div class="definition">
+<details class="glossary-card"><summary>Sparring — Competent</summary><div class="definition"><div class="glossary-sketch" aria-label="Two people sparring sketch">
+<svg viewBox="0 0 220 112" role="img">
+  <circle class="sketch-line" cx="72" cy="25" r="7"/><circle class="sketch-line" cx="148" cy="25" r="7"/>
+  <path class="sketch-line" d="M72 32 L72 58 M72 42 L92 48 M72 42 L58 50 M72 58 L58 87 M72 58 L91 84"/>
+  <path class="sketch-line" d="M148 32 L148 58 M148 42 L128 48 M148 42 L162 50 M148 58 L130 84 M148 58 L163 87"/>
+  <path class="sketch-accent" d="M94 48 H126"/>
+  <text class="sketch-label" x="76" y="106">distance + control</text>
+</svg></div>
 <div class="glossary-label">Requirement</div>
 <ul>
 <li>Demonstrate competent live sparring.</li>
