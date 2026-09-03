@@ -152,8 +152,308 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
   border:0;outline:0;border-radius:0;box-shadow:none;
 }
 
+
+/* FUTURISTIC LEVEL UP PASS */
+:root{
+  --neon:#79aaff;
+  --neon2:#65e2b2;
+  --gold:#ffc95c;
+}
+body{
+  background:
+    radial-gradient(circle at 85% -10%,rgba(74,119,255,.14),transparent 32rem),
+    radial-gradient(circle at -10% 45%,rgba(66,226,177,.07),transparent 28rem),
+    #070d14;
+}
+.levelup-header{
+  min-height:94px;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:18px 26px 15px;
+  background:linear-gradient(180deg,rgba(9,17,28,.98),rgba(7,13,20,.96));
+  border-bottom:1px solid rgba(121,170,255,.35);
+  box-shadow:0 10px 35px rgba(0,0,0,.28);
+}
+.levelup-brand{display:flex;align-items:center;gap:9px;min-width:0}
+.levelup-mark{
+  width:46px;height:46px;object-fit:cover;object-position:left center;
+  filter:drop-shadow(0 0 8px rgba(255,195,73,.55));
+}
+.levelup-wordmark{
+  display:flex;align-items:baseline;gap:8px;
+  font-family:Impact,"Arial Black",system-ui,sans-serif;
+  font-style:italic;font-size:30px;line-height:1;letter-spacing:1px;
+  white-space:nowrap;
+}
+.levelup-wordmark span{
+  color:#eef5ff;
+  text-shadow:0 1px 0 #8da1b9,0 0 12px rgba(150,195,255,.18);
+}
+.levelup-wordmark strong{
+  color:#ffc94f;
+  text-shadow:0 0 13px rgba(255,193,55,.35);
+}
+.levelup-header small{margin-left:55px;margin-top:5px;color:#8e9caf;font-size:13px}
+.card,.exercise,.level-card,.demo-note,.kick-card{
+  background:linear-gradient(145deg,rgba(25,37,55,.96),rgba(13,22,34,.98));
+  border-color:rgba(103,139,190,.42)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025),0 12px 30px rgba(0,0,0,.13);
+}
+.card h2,.exercise>label{letter-spacing:-.02em}
+input{
+  background:linear-gradient(180deg,#09111c,#080e17)!important;
+  border-color:rgba(110,150,205,.5)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.01),0 0 0 rgba(0,0,0,0);
+  transition:.18s ease;
+}
+input:focus{
+  border-color:var(--neon)!important;
+  box-shadow:0 0 0 3px rgba(121,170,255,.13),0 0 18px rgba(121,170,255,.08);
+}
+.cardio-console{position:relative;overflow:hidden}
+.cardio-console:before{
+  content:"";position:absolute;inset:0 0 auto 0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--neon2),transparent);opacity:.55;
+}
+.cardio-grid-4{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:9px!important;margin-top:10px;
+}
+.cardio-grid-4 button{
+  min-height:52px;padding:10px 8px!important;border-radius:13px!important;
+  font-size:13px!important;line-height:1.15;
+  background:linear-gradient(180deg,#182638,#111c2b)!important;
+  border:1px solid rgba(105,143,197,.45)!important;
+  color:#dfe9f7!important;
+}
+.cardio-grid-4 button span{color:var(--gold);margin-right:4px}
+.cardio-grid-4 button.active{
+  color:white!important;border-color:var(--neon)!important;
+  background:linear-gradient(135deg,rgba(57,103,171,.55),rgba(24,43,68,.95))!important;
+  box-shadow:0 0 0 1px rgba(121,170,255,.22),0 0 20px rgba(84,135,220,.13);
+}
+.cardio-panel{
+  margin-top:12px;padding:14px;border-radius:14px;
+  background:rgba(6,13,22,.5);border:1px solid rgba(103,139,190,.25);
+}
+.primary{
+  background:linear-gradient(100deg,#75a9ff,#74e0c0)!important;
+  box-shadow:0 10px 28px rgba(89,151,231,.18);
+}
+.bottom-nav{
+  background:rgba(5,11,18,.94)!important;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-top-color:rgba(111,150,204,.35)!important;
+}
+@media(max-width:430px){
+  .levelup-header{padding-left:20px;padding-right:18px}
+  .levelup-wordmark{font-size:27px}
+  .levelup-mark{width:42px;height:42px}
+  .levelup-header small{margin-left:51px;font-size:12px}
+}
+
+
+/* ===== UNIFIED GREEN + COOL BLUE THEME ===== */
+:root{
+  --bg:#071018;
+  --card:#142234;
+  --card2:#0c1724;
+  --line:#2e4a64;
+  --text:#f4f8fb;
+  --muted:#9eb0c2;
+  --accent:#6ea8ff;      /* cool blue */
+  --good:#61e3b2;        /* mint green */
+  --warn:#73c9ff;        /* replace old yellow stage accent */
+  --cyan:#72d9ff;
+  --mint:#61e3b2;
+  --deepblue:#0b1725;
+}
+
+/* Typography: more character, still highly readable */
+html,body{
+  font-family:"Avenir Next","SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.005em;
+}
+header b,.levelup-wordmark,h1,h2,h3,.big,.kick-title,.demo-section-title,.glossary-card summary,.level-card summary b{
+  font-family:"Avenir Next Condensed","Avenir Next","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-weight:800;
+}
+h2{
+  letter-spacing:-.025em;
+  font-size:18px;
+}
+h3{
+  color:var(--mint)!important;
+  letter-spacing:.11em;
+}
+h3:after{
+  background:linear-gradient(90deg,var(--mint),var(--cyan))!important;
+  opacity:.72!important;
+}
+.big{
+  color:var(--mint)!important;
+  text-shadow:0 0 18px rgba(97,227,178,.12);
+}
+.meta,.mini em{
+  color:var(--cyan)!important;
+}
+
+/* Consistent cool futuristic panels */
+.card,.exercise,.level-card,.glossary-card,.kick-card,.demo-note,.cardio-panel{
+  background:linear-gradient(145deg,rgba(20,34,52,.97),rgba(10,22,35,.985))!important;
+  border-color:rgba(87,145,191,.42)!important;
+}
+.card{
+  box-shadow:0 12px 34px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.018);
+}
+.exercise{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.015);
+}
+
+/* Progress / active states */
+.bar{
+  background:linear-gradient(90deg,var(--accent),var(--mint))!important;
+}
+.notice,.calc-status,.status.good{
+  color:var(--mint)!important;
+}
+.status.warn{
+  color:var(--cyan)!important;
+}
+.nextbox{
+  border-color:rgba(104,165,220,.36)!important;
+  background:linear-gradient(145deg,rgba(10,22,35,.95),rgba(8,17,28,.96))!important;
+}
+
+/* Level cards: remove gold/yellow language */
+.level-dot{
+  border-color:var(--cyan)!important;
+  box-shadow:0 0 12px rgba(114,217,255,.06);
+}
+.level-dot.done{
+  background:var(--mint)!important;
+  border-color:var(--mint)!important;
+  box-shadow:0 0 0 2px rgba(97,227,178,.08),0 0 15px rgba(97,227,178,.15)!important;
+}
+.reqs span{
+  color:#a5b8c9!important;
+}
+.reqs b{
+  color:#edf7ff!important;
+}
+
+/* Glossary: consistent green/blue */
+.glossary-card summary{
+  color:#eef8ff!important;
+}
+.definition .glossary-label{
+  color:var(--cyan)!important;
+  letter-spacing:.02em;
+}
+.definition li::marker{
+  color:var(--mint)!important;
+}
+
+/* Demos surrounding UI */
+.demo-section-title{
+  color:var(--mint)!important;
+  letter-spacing:-.01em;
+}
+.kick-num{
+  background:linear-gradient(135deg,var(--mint),var(--cyan))!important;
+  color:#06131d!important;
+}
+.kick-pass b{
+  color:var(--mint)!important;
+}
+.kick-list li::marker{
+  color:var(--mint)!important;
+}
+.demo-note{
+  border-color:rgba(102,174,222,.38)!important;
+  background:linear-gradient(145deg,rgba(10,23,36,.9),rgba(8,18,29,.95))!important;
+}
+
+/* Buttons / cardio */
+button{
+  font-family:"Avenir Next","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.01em;
+}
+button.active,.tab-btn.active{
+  border-color:var(--accent)!important;
+  background:linear-gradient(135deg,rgba(54,102,160,.56),rgba(24,49,74,.94))!important;
+  box-shadow:0 0 0 1px rgba(110,168,255,.18),0 0 18px rgba(89,143,222,.10)!important;
+}
+.primary{
+  background:linear-gradient(100deg,var(--accent),var(--mint))!important;
+  color:#06131d!important;
+}
+.cardio-grid-4 button span{
+  color:var(--mint)!important;
+}
+
+/* Bottom nav: blue/green instead of yellow */
+.bottom-tabs{
+  background:rgba(5,13,21,.965)!important;
+  border-top-color:rgba(77,129,172,.38)!important;
+}
+.tab-btn{
+  color:#9eb0c2!important;
+}
+.tab-btn.active{
+  color:#f4f9fc!important;
+}
+.tab-btn .tab-icon{
+  filter:saturate(.8);
+}
+
+/* LEVEL UP brand: cool blue + green */
+.levelup-wordmark span{
+  color:#dff1ff!important;
+  text-shadow:0 1px 0 #809cb5,0 0 15px rgba(114,217,255,.14)!important;
+}
+.levelup-wordmark strong{
+  color:var(--mint)!important;
+  text-shadow:0 0 14px rgba(97,227,178,.28)!important;
+}
+
+/* Inputs */
+input{
+  color:#f5fbff!important;
+  caret-color:var(--mint);
+}
+input:focus{
+  border-color:var(--cyan)!important;
+  box-shadow:0 0 0 3px rgba(114,217,255,.12),0 0 20px rgba(97,227,178,.06)!important;
+}
+
+/* Subtle futuristic accent lines */
+.card:before{
+  content:"";
+  display:block;
+  height:1px;
+  margin:-13px -13px 12px;
+  background:linear-gradient(90deg,transparent,rgba(114,217,255,.28),rgba(97,227,178,.22),transparent);
+  border-radius:18px 18px 0 0;
+}
+.hero:before{
+  background:linear-gradient(90deg,transparent,rgba(110,168,255,.45),rgba(97,227,178,.32),transparent);
+}
+
+/* Keep mobile layout calm and legible */
+@media(max-width:430px){
+  h2{font-size:17px}
+  h3{font-size:14px;letter-spacing:.095em}
+  .levelup-wordmark{letter-spacing:.5px}
+}
+
 </style></head><body>
-<header><b>Character Fitness RPG</b><small>Enter all results, then tap Calculate Rankings</small></header><div class="wrap">
+<header class="levelup-header">
+  <div class="levelup-brand">
+    <img src="assets/level_up_never_settle.png" alt="" class="levelup-mark">
+    <div class="levelup-wordmark"><span>LEVEL</span><strong>UP</strong></div>
+  </div>
+  <small>Enter all results, then tap Calculate Rankings</small>
+</header><div class="wrap">
 <div id="progressView" class="tab-view active">
 <div class="card hero"><div class="eyebrow">Current strength level</div><div id="currentChar" class="big">Green Arrow</div><div id="currentMeta" class="meta">Level 1 • Foundation</div><img id="currentImage" class="char-image" alt="Current character"><div class="progress"><div id="bar" class="bar"></div></div><div id="nextBox" class="nextbox">Enter your current bests below, then tap Calculate Rankings.</div></div>
 
@@ -172,23 +472,36 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 <div id="weightedBox" class="two" style="display:none"><div><label>Added kg</label><input id="chinWeight" type="number" inputmode="decimal" step=".5"></div><div><label>Reps</label><input id="chinRepsW" type="number" inputmode="numeric"></div></div>
 <div id="chinStatus" class="status">Enter your chin-up result</div></div>
 
-<div class="exercise"><label>Cardio</label>
-<div class="cardio-grid">
-<button id="inclineBtn" type="button">Incline 15 min</button>
-<button id="runBtn" type="button">Run distance</button>
-<button id="fiveKBtn" type="button">5K time</button>
+<div class="exercise cardio-console"><label>Cardio</label>
+<div class="cardio-grid cardio-grid-4">
+  <button id="inclineBtn" type="button"><span>↗</span> Incline Walk</button>
+  <button id="stairsBtn" type="button"><span>▥</span> StairMaster</button>
+  <button id="runBtn" type="button"><span>⌁</span> Run Distance</button>
+  <button id="fiveKBtn" type="button"><span>⚡</span> 5K Time</button>
 </div>
-<div id="inclineBox">
-<div class="two"><div><label>Distance in 15 min (km @ 12%)</label><input id="cardioInclineKm" type="number" inputmode="decimal" step=".01"></div><div><label>Stairs completed</label><input id="cardioStairs" type="number" inputmode="numeric" step="1"></div></div>
-<div class="cardio-help">Levels 1–4 use incline distance. Levels 5–9 also require the listed stair total.</div>
+
+<div id="inclineBox" class="cardio-panel">
+  <label>Distance in 15 min (km @ 12%)</label>
+  <input id="cardioInclineKm" type="number" inputmode="decimal" step=".01" placeholder="e.g. 1.05">
+  <div class="cardio-help">Incline walking benchmark for Levels 1–9.</div>
 </div>
-<div id="runBox" style="display:none">
-<label>Continuous run distance (km)</label><input id="cardioRunKm" type="number" inputmode="decimal" step=".1">
-<div class="cardio-help">Ranks the cardio portion of Levels 10–16 by continuous distance.</div>
+
+<div id="stairsBox" class="cardio-panel" style="display:none">
+  <label>Stairs / steps completed</label>
+  <input id="cardioStairs" type="number" inputmode="numeric" step="1" placeholder="e.g. 500">
+  <div class="cardio-help">StairMaster benchmark used alongside incline walking for Levels 5–9.</div>
 </div>
-<div id="fiveKBox" style="display:none">
-<div class="two"><div><label>5K minutes</label><input id="cardio5Min" type="number" inputmode="numeric"></div><div><label>Seconds</label><input id="cardio5Sec" type="number" inputmode="numeric" min="0" max="59"></div></div>
-<div class="cardio-help">Ranks Levels 17–26 from your 5K time.</div>
+
+<div id="runBox" class="cardio-panel" style="display:none">
+  <label>Continuous run distance (km)</label>
+  <input id="cardioRunKm" type="number" inputmode="decimal" step=".1" placeholder="e.g. 3.0">
+  <div class="cardio-help">Continuous running benchmark for Levels 10–16.</div>
+</div>
+
+<div id="fiveKBox" class="cardio-panel" style="display:none">
+  <div class="two"><div><label>5K minutes</label><input id="cardio5Min" type="number" inputmode="numeric" placeholder="30"></div>
+  <div><label>Seconds</label><input id="cardio5Sec" type="number" inputmode="numeric" min="0" max="59" placeholder="00"></div></div>
+  <div class="cardio-help">5K benchmark for Levels 17–26.</div>
 </div>
 <div id="cardioStatus" class="status">Enter your cardio result</div>
 </div>
@@ -461,9 +774,11 @@ function setMode(m){
 function setCardioMode(m){
   cardioMode=m;
   document.getElementById('inclineBox').style.display=m==='incline'?'block':'none';
+  document.getElementById('stairsBox').style.display=m==='stairs'?'block':'none';
   document.getElementById('runBox').style.display=m==='run'?'block':'none';
   document.getElementById('fiveKBox').style.display=m==='5k'?'block':'none';
-  [['inclineBtn','incline'],['runBtn','run'],['fiveKBtn','5k']].forEach(([id,x])=>document.getElementById(id).classList.toggle('active',x===m));
+  [['inclineBtn','incline'],['stairsBtn','stairs'],['runBtn','run'],['fiveKBtn','5k']]
+    .forEach(([id,x])=>document.getElementById(id).classList.toggle('active',x===m));
 }
 
 function levelFor(k,v){let n=0;for(const x of levels)if(Number(v)>=x[k])n=x.level;return n}
@@ -636,6 +951,10 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.getElementById('assistBtn').addEventListener('click',()=>setMode('assist'));
  document.getElementById('bwBtn').addEventListener('click',()=>setMode('bw'));
  document.getElementById('weightedBtn').addEventListener('click',()=>setMode('weighted'));
+ document.getElementById('inclineBtn').addEventListener('click',()=>setCardioMode('incline'));
+ document.getElementById('stairsBtn').addEventListener('click',()=>setCardioMode('stairs'));
+ document.getElementById('runBtn').addEventListener('click',()=>setCardioMode('run'));
+ document.getElementById('fiveKBtn').addEventListener('click',()=>setCardioMode('5k'));
  document.getElementById('calcBtn').addEventListener('click',calculate);
  setMode('assist');
   setCardioMode('incline');
@@ -649,6 +968,7 @@ document.addEventListener('DOMContentLoaded',()=>{
      if(saved.chinWeight)document.getElementById('chinWeight').value=saved.chinWeight;
      if(saved.chinRepsW)document.getElementById('chinRepsW').value=saved.chinRepsW;
      setMode(saved.mode||'assist');
+     setCardioMode(saved.cardioMode||'incline');
      calculate();
    }
  }catch(e){}
