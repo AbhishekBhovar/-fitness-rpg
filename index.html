@@ -168,7 +168,7 @@ body{
 .levelup-header{
   min-height:94px;
   display:flex;flex-direction:column;justify-content:center;
-  padding:calc(18px + env(safe-area-inset-top)) 26px 15px;
+  padding:18px 26px 15px;
   background:linear-gradient(180deg,rgba(9,17,28,.98),rgba(7,13,20,.96));
   border-bottom:1px solid rgba(121,170,255,.35);
   box-shadow:0 10px 35px rgba(0,0,0,.28);
@@ -252,23 +252,332 @@ input:focus{
 }
 
 
-/* FINAL IPHONE 16 PRO DEMO LAYOUT FIXES */
-.levelup-header small{display:none!important}
-.kick-card{overflow:visible!important;padding:14px!important;margin-bottom:16px!important}
-.kick-photo{object-fit:contain!important;object-position:center!important;max-height:none!important}
-.kick-list{position:relative!important;z-index:2!important;margin-top:12px!important;padding-left:2px!important}
-.kick-pass{position:relative!important;z-index:2!important;margin-top:8px!important}
-.hip-ankle-clean{overflow:visible!important;margin:14px 0 20px!important;border:0!important;border-radius:0!important;background:transparent!important}
-.hip-ankle-clean img{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important;margin:0!important;border:0!important;border-radius:0!important;clip-path:none!important}
-.demo-image{margin-top:18px!important;margin-bottom:22px!important}
-@media(max-width:430px){.wrap{padding-top:16px!important}.kick-card{padding:12px!important}.kick-list,.kick-pass{font-size:12px!important;line-height:1.5!important}}
+/* ===== UNIFIED GREEN + COOL BLUE THEME ===== */
+:root{
+  --bg:#071018;
+  --card:#142234;
+  --card2:#0c1724;
+  --line:#2e4a64;
+  --text:#f4f8fb;
+  --muted:#9eb0c2;
+  --accent:#6ea8ff;      /* cool blue */
+  --good:#61e3b2;        /* mint green */
+  --warn:#73c9ff;        /* replace old yellow stage accent */
+  --cyan:#72d9ff;
+  --mint:#61e3b2;
+  --deepblue:#0b1725;
+}
+
+/* Typography: more character, still highly readable */
+html,body{
+  font-family:"Avenir Next","SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.005em;
+}
+header b,.levelup-wordmark,h1,h2,h3,.big,.kick-title,.demo-section-title,.glossary-card summary,.level-card summary b{
+  font-family:"Avenir Next Condensed","Avenir Next","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-weight:800;
+}
+h2{
+  letter-spacing:-.025em;
+  font-size:18px;
+}
+h3{
+  color:var(--mint)!important;
+  letter-spacing:.11em;
+}
+h3:after{
+  background:linear-gradient(90deg,var(--mint),var(--cyan))!important;
+  opacity:.72!important;
+}
+.big{
+  color:var(--mint)!important;
+  text-shadow:0 0 18px rgba(97,227,178,.12);
+}
+.meta,.mini em{
+  color:var(--cyan)!important;
+}
+
+/* Consistent cool futuristic panels */
+.card,.exercise,.level-card,.glossary-card,.kick-card,.demo-note,.cardio-panel{
+  background:linear-gradient(145deg,rgba(20,34,52,.97),rgba(10,22,35,.985))!important;
+  border-color:rgba(87,145,191,.42)!important;
+}
+.card{
+  box-shadow:0 12px 34px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.018);
+}
+.exercise{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.015);
+}
+
+/* Progress / active states */
+.bar{
+  background:linear-gradient(90deg,var(--accent),var(--mint))!important;
+}
+.notice,.calc-status,.status.good{
+  color:var(--mint)!important;
+}
+.status.warn{
+  color:var(--cyan)!important;
+}
+.nextbox{
+  border-color:rgba(104,165,220,.36)!important;
+  background:linear-gradient(145deg,rgba(10,22,35,.95),rgba(8,17,28,.96))!important;
+}
+
+/* Level cards: remove gold/yellow language */
+.level-dot{
+  border-color:var(--cyan)!important;
+  box-shadow:0 0 12px rgba(114,217,255,.06);
+}
+.level-dot.done{
+  background:var(--mint)!important;
+  border-color:var(--mint)!important;
+  box-shadow:0 0 0 2px rgba(97,227,178,.08),0 0 15px rgba(97,227,178,.15)!important;
+}
+.reqs span{
+  color:#a5b8c9!important;
+}
+.reqs b{
+  color:#edf7ff!important;
+}
+
+/* Glossary: consistent green/blue */
+.glossary-card summary{
+  color:#eef8ff!important;
+}
+.definition .glossary-label{
+  color:var(--cyan)!important;
+  letter-spacing:.02em;
+}
+.definition li::marker{
+  color:var(--mint)!important;
+}
+
+/* Demos surrounding UI */
+.demo-section-title{
+  color:var(--mint)!important;
+  letter-spacing:-.01em;
+}
+.kick-num{
+  background:linear-gradient(135deg,var(--mint),var(--cyan))!important;
+  color:#06131d!important;
+}
+.kick-pass b{
+  color:var(--mint)!important;
+}
+.kick-list li::marker{
+  color:var(--mint)!important;
+}
+.demo-note{
+  border-color:rgba(102,174,222,.38)!important;
+  background:linear-gradient(145deg,rgba(10,23,36,.9),rgba(8,18,29,.95))!important;
+}
+
+/* Buttons / cardio */
+button{
+  font-family:"Avenir Next","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.01em;
+}
+button.active,.tab-btn.active{
+  border-color:var(--accent)!important;
+  background:linear-gradient(135deg,rgba(54,102,160,.56),rgba(24,49,74,.94))!important;
+  box-shadow:0 0 0 1px rgba(110,168,255,.18),0 0 18px rgba(89,143,222,.10)!important;
+}
+.primary{
+  background:linear-gradient(100deg,var(--accent),var(--mint))!important;
+  color:#06131d!important;
+}
+.cardio-grid-4 button span{
+  color:var(--mint)!important;
+}
+
+/* Bottom nav: blue/green instead of yellow */
+.bottom-tabs{
+  background:rgba(5,13,21,.965)!important;
+  border-top-color:rgba(77,129,172,.38)!important;
+}
+.tab-btn{
+  color:#9eb0c2!important;
+}
+.tab-btn.active{
+  color:#f4f9fc!important;
+}
+.tab-btn .tab-icon{
+  filter:saturate(.8);
+}
+
+/* LEVEL UP brand: cool blue + green */
+.levelup-wordmark span{
+  color:#dff1ff!important;
+  text-shadow:0 1px 0 #809cb5,0 0 15px rgba(114,217,255,.14)!important;
+}
+.levelup-wordmark strong{
+  color:var(--mint)!important;
+  text-shadow:0 0 14px rgba(97,227,178,.28)!important;
+}
+
+/* Inputs */
+input{
+  color:#f5fbff!important;
+  caret-color:var(--mint);
+}
+input:focus{
+  border-color:var(--cyan)!important;
+  box-shadow:0 0 0 3px rgba(114,217,255,.12),0 0 20px rgba(97,227,178,.06)!important;
+}
+
+/* Subtle futuristic accent lines */
+.card:before{
+  content:"";
+  display:block;
+  height:1px;
+  margin:-13px -13px 12px;
+  background:linear-gradient(90deg,transparent,rgba(114,217,255,.28),rgba(97,227,178,.22),transparent);
+  border-radius:18px 18px 0 0;
+}
+.hero:before{
+  background:linear-gradient(90deg,transparent,rgba(110,168,255,.45),rgba(97,227,178,.32),transparent);
+}
+
+/* Keep mobile layout calm and legible */
+@media(max-width:430px){
+  h2{font-size:17px}
+  h3{font-size:14px;letter-spacing:.095em}
+  .levelup-wordmark{letter-spacing:.5px}
+}
+
+
+/* ===== iPhone safe-area header fix ===== */
+.levelup-header{
+  padding-top:max(24px, calc(env(safe-area-inset-top) + 18px))!important;
+  padding-bottom:16px!important;
+  min-height:112px!important;
+  overflow:visible!important;
+}
+.levelup-brand{
+  min-height:52px;
+  align-items:center!important;
+}
+.levelup-mark{
+  width:50px!important;
+  height:50px!important;
+  flex:0 0 50px;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+.levelup-wordmark{
+  font-size:30px!important;
+}
+@media(max-width:430px){
+  .levelup-header{
+    padding-top:max(26px, calc(env(safe-area-inset-top) + 16px))!important;
+    padding-left:22px!important;
+  }
+  .levelup-mark{width:46px!important;height:46px!important;flex-basis:46px}
+  .levelup-wordmark{font-size:28px!important}
+}
+
+/* ===== Simple glossary sketch cards ===== */
+.glossary-sketch{
+  width:100%;
+  max-width:300px;
+  margin:12px auto 16px;
+  padding:10px 12px;
+  border:1px solid rgba(114,217,255,.28);
+  border-radius:14px;
+  background:linear-gradient(145deg,rgba(8,18,29,.72),rgba(10,25,38,.9));
+}
+.glossary-sketch svg{
+  display:block;
+  width:100%;
+  height:112px;
+}
+.glossary-sketch .sketch-line{
+  stroke:#71d8ff;
+  stroke-width:3.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+.glossary-sketch .sketch-accent{
+  stroke:#61e3b2;
+  stroke-width:3.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+.glossary-sketch .sketch-fill{
+  fill:#61e3b2;
+  opacity:.12;
+  stroke:#61e3b2;
+  stroke-width:2.4;
+}
+.glossary-sketch .sketch-label{
+  fill:#a9bed0;
+  font-size:10px;
+  font-family:"Avenir Next","SF Pro Text",sans-serif;
+}
+
+
+/* ===== FINAL BLUE THEME + DEMO FIX PASS ===== */
+:root{--accent:#68a7ff!important;--good:#66c8ff!important;--warn:#66c8ff!important;--mint:#72cfff!important;--cyan:#8adfff!important;--neon:#68a7ff!important;--neon2:#72cfff!important;--gold:#68a7ff!important;}
+body{background:radial-gradient(circle at 82% -8%,rgba(50,119,255,.18),transparent 30rem),radial-gradient(circle at -10% 48%,rgba(55,188,255,.08),transparent 28rem),#070d16!important;}
+h3{color:#72cfff!important} h3:after{background:linear-gradient(90deg,#68a7ff,#72cfff)!important}
+.big,.notice,.calc-status,.status.good,.demo-section-title,.kick-pass b{color:#72cfff!important}
+.level-dot{border-color:#68a7ff!important}.level-dot.done{background:#68a7ff!important;border-color:#68a7ff!important;box-shadow:0 0 14px rgba(104,167,255,.22)!important}
+.definition li::marker,.kick-list li::marker{color:#72cfff!important}.definition .glossary-label{color:#8adfff!important}
+.levelup-wordmark strong{color:#68a7ff!important;text-shadow:0 0 16px rgba(104,167,255,.38)!important}
+.levelup-mark{filter:drop-shadow(0 0 11px rgba(80,160,255,.55))!important}
+.primary{background:linear-gradient(100deg,#5f9fff,#78d7ff)!important}
+.cardio-grid-4 button span{color:#72cfff!important}
+.kick-num{background:linear-gradient(135deg,#68a7ff,#72cfff)!important}
+.glossary-sketch .sketch-accent{stroke:#68a7ff!important}.glossary-sketch .sketch-fill{fill:#68a7ff!important;stroke:#68a7ff!important}.glossary-sketch .sketch-line{stroke:#8adfff!important}
+/* latest demo clipping fixes */
+.kick-card{overflow:visible!important;padding:14px!important;margin-bottom:18px!important}.kick-photo{object-fit:contain!important;object-position:center!important;max-height:none!important}.kick-list{position:relative!important;z-index:2!important;margin-top:14px!important;padding-left:2px!important}.kick-pass{position:relative!important;z-index:2!important;margin-top:9px!important}.hip-ankle-clean{overflow:visible!important;margin:14px 0 20px!important;border:0!important;border-radius:0!important;background:transparent!important}.hip-ankle-clean img{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important;margin:0!important;border:0!important;border-radius:0!important;clip-path:none!important}.demo-image{margin-top:22px!important;margin-bottom:28px!important}
+/* infographic is dense: let it use full width and breathe */
+#demosView .card{overflow:visible!important}#demosView .demo-image[src*="jumps_plyometrics"]{width:100%!important;max-width:none!important}
+@media(max-width:430px){.wrap{padding-top:16px!important}.kick-card{padding:12px!important}.kick-list,.kick-pass{font-size:12px!important;line-height:1.55!important}.levelup-header{padding-top:max(30px,calc(env(safe-area-inset-top) + 20px))!important;min-height:118px!important}}
+
+.glossary-illustration{
+  width:100%;
+  max-width:390px;
+  margin:12px auto 16px;
+  padding:8px;
+  border:1px solid rgba(76,160,255,.38);
+  border-radius:16px;
+  background:#f7fbff;
+  box-shadow:0 8px 24px rgba(0,90,190,.10);
+  overflow:hidden;
+}
+.glossary-illustration img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:220px;
+  object-fit:contain;
+  border-radius:10px;
+  background:white;
+}
+@media(max-width:430px){
+  .glossary-illustration{max-width:100%;padding:7px}
+  .glossary-illustration img{max-height:190px}
+}
+
+
+/* Final blue-theme enforcement */
+:root{--warn:#72cfff!important;--accent:#5e9dff!important;--good:#55c8ff!important}
+h3{color:#72cfff!important}
+h3:after{background:linear-gradient(90deg,#4b91ff,#72dfff)!important}
+.level-dot{border-color:#72cfff!important}
+.levelup-wordmark strong{color:#58b8ff!important;text-shadow:0 0 14px rgba(88,184,255,.3)!important}
+.demo-section-title,.notice,.definition .glossary-label{color:#62c9ff!important}
+
 </style></head><body>
 <header class="levelup-header">
   <div class="levelup-brand">
     <img src="assets/level_up_never_settle.png" alt="" class="levelup-mark">
     <div class="levelup-wordmark"><span>LEVEL</span><strong>UP</strong></div>
-  </div>
-</header><div class="wrap">
+  </div></header><div class="wrap">
 <div id="progressView" class="tab-view active">
 <div class="card hero"><div class="eyebrow">Current strength level</div><div id="currentChar" class="big">Green Arrow</div><div id="currentMeta" class="meta">Level 1 • Foundation</div><img id="currentImage" class="char-image" alt="Current character"><div class="progress"><div id="bar" class="bar"></div></div><div id="nextBox" class="nextbox">Enter your current bests below, then tap Calculate Rankings.</div></div>
 
@@ -358,7 +667,7 @@ input:focus{
 <div id="glossaryView" class="tab-view">
 <div class="card"><h2>Glossary</h2><div class="notice">Your rulebook for the movement and fighting requirements used in Levels.</div>
 
-<details class="glossary-card"><summary>Deep Squat</summary><div class="definition">
+<details class="glossary-card"><summary>Deep Squat</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_deep_squat.png" alt="Deep Squat visual example"></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Comfortable full-depth squat.</li>
@@ -372,7 +681,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition">
+<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_hamstring.png" alt="Hamstring Mobility visual example"></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Enough posterior-chain range to hinge toward the floor comfortably.</li>
@@ -384,7 +693,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Flexibility</summary><div class="definition">
+<details class="glossary-card"><summary>Flexibility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_flexibility.png" alt="Flexibility visual example"></div>
 <div class="glossary-label">Level target</div>
 <ul>
 <li>Palms flat on the floor.</li>
@@ -393,7 +702,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition">
+<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_hip_ankle.png" alt="Hip & Ankle Mobility visual example"></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Strong, usable range through the hips and ankles.</li>
@@ -408,7 +717,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition">
+<details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_high_kick.png" alt="High-Kick Mobility visual example"></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Active range of motion for useful martial-arts kicking positions.</li>
@@ -429,7 +738,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition">
+<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_jumps_landings.png" alt="Jumps & Landings visual example"></div>
 <div class="glossary-label">Level 17 — Control</div>
 <ul>
 <li>10 squat jumps.</li>
@@ -448,7 +757,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Plyometrics</summary><div class="definition">
+<details class="glossary-card"><summary>Plyometrics</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_plyometrics.png" alt="Plyometrics visual example"></div>
 <div class="glossary-label">Level 18 — Explosiveness &amp; Reactivity</div>
 <ul>
 <li>10 continuous pogo jumps.</li>
@@ -467,7 +776,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Martial Arts — Beginner</summary><div class="definition">
+<details class="glossary-card"><summary>Martial Arts — Beginner</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_martial_beginner.png" alt="Martial Arts — Beginner visual example"></div>
 <div class="glossary-label">Requirement</div>
 <ul>
 <li>Train in a recognised martial art.</li>
@@ -476,7 +785,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition">
+<details class="glossary-card"><summary>Martial Arts — Intermediate</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_martial_intermediate.png" alt="Martial Arts — Intermediate visual example"></div>
 <div class="glossary-label">Requirement</div>
 <ul>
 <li>Progress beyond the beginner milestone.</li>
@@ -485,7 +794,7 @@ input:focus{
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Sparring — Competent</summary><div class="definition">
+<details class="glossary-card"><summary>Sparring — Competent</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_sparring.png" alt="Sparring — Competent visual example"></div>
 <div class="glossary-label">Requirement</div>
 <ul>
 <li>Demonstrate competent live sparring.</li>
