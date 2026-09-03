@@ -1,19 +1,11 @@
 # LEVEL UP — GitHub Pages Build
 
-Character Fitness RPG / benchmark progression app.
+Upload every file and folder in this directory to the repository root.
 
-## Upload
-Upload **all files and the `assets` folder in this package** to the root of the `-fitness-rpg` GitHub repository, replacing the previous app files.
-
-## Included in this build
-- 5 tabs: My Progress, Levels, Rankings, Glossary, Demos
-- 26 character levels
-- 7 weighted benchmarks + chin-up + cardio ranking
-- separate Incline Walk, StairMaster, Run Distance and 5K inputs
-- electric-blue LEVEL UP theme and PWA icons
-- current-level character image on My Progress
-- corrected hamstring, flexibility, hip/ankle mobility visuals
-- separate Level 17 Jumps & Landings and Level 18 Plyometrics visual guides
-- martial-arts beginner/intermediate/sparring glossary text without unnecessary images
-
-The app saves results locally on the device.
+Fixes in this build:
+- Bottom tabs: My Progress → Rankings → Levels → Glossary → Demos
+- Benchmark `(kg × 8 reps)` lines are smaller electric blue and regular weight
+- Hamstring Mobility uses a human forward-fold visual instead of the crude SVG
+- Hip & Ankle Mobility uses illustrated human 90/90 + knee-to-wall visuals
+- Level 17 and Level 18 demos are split into large full-width mobile cards, one movement per row
+- Fresh app-specific service-worker cache

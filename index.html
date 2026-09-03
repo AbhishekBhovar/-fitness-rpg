@@ -636,7 +636,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 .card>h2{color:#35C8FF!important;text-shadow:0 0 12px rgba(34,184,255,.12)!important}
 .benchmark-label{min-height:44px!important;margin-bottom:8px!important}
 .benchmark-label span{display:block!important;color:#F8FBFF!important;font-size:12px!important;line-height:1.15!important;font-weight:850!important}
-.benchmark-label small{display:block!important;color:#35C8FF!important;font-size:9.5px!important;line-height:1.15!important;font-weight:750!important;margin-top:4px!important;letter-spacing:.01em!important}
+.benchmark-label small{display:block!important;color:#35C8FF!important;font-size:9.5px!important;line-height:1.15!important;font-weight:400!important;margin-top:4px!important;letter-spacing:.01em!important}
 .glossary-card summary{color:#F7FAFE!important;position:relative;padding-left:20px!important}
 .glossary-card summary:before{content:'';position:absolute;left:9px;top:50%;transform:translateY(-50%);width:3px;height:22px;border-radius:99px;background:#22B8FF;box-shadow:0 0 10px rgba(34,184,255,.42)}
 .glossary-card[open] summary{color:#35C8FF!important}
@@ -654,20 +654,13 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 .glossary-illustration img,.demo-image{width:100%!important;height:auto!important;object-fit:contain!important}
 @media(max-width:430px){.wrap{padding-left:12px!important;padding-right:12px!important}.weights-grid{gap:9px!important}.weights-grid .exercise{padding:10px!important}.hero .char-image{height:220px!important}.definition{padding:11px!important}.bottom-tabs{padding-left:6px!important;padding-right:6px!important}}
 
-/* Fix pass: benchmark units + mobile movement cards */
-.benchmark-label small{font-weight:400!important;font-size:10.5px!important;letter-spacing:.01em!important}
-.movement-stack{display:grid;grid-template-columns:1fr;gap:14px;margin:12px 0 18px}
-.movement-demo{border:1px solid rgba(34,184,255,.45);border-radius:16px;padding:10px;background:linear-gradient(180deg,rgba(15,32,48,.96),rgba(8,19,30,.96));box-shadow:0 0 16px rgba(34,184,255,.08)}
-.movement-demo img{display:block;width:100%;height:210px;object-fit:cover;object-position:center;border-radius:11px;background:#0a1622}
-.movement-demo strong{display:block;color:#F8FBFF;font-size:15px;margin:9px 2px 2px}
-.movement-demo small{display:block;color:#35C8FF;font-size:12px;font-weight:500;margin:0 2px 2px}
-.mobility-visual-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 14px}
-.mobility-visual{border:1px solid rgba(34,184,255,.4);border-radius:14px;padding:8px;background:#0a1724}
-.mobility-visual img{width:100%;height:170px;object-fit:cover;border-radius:9px;display:block}
-.mobility-visual b{display:block;color:#35C8FF;text-align:center;margin-top:7px;font-size:12px}
-.ankle-visual{margin:10px 0 14px;border:1px solid rgba(34,184,255,.4);border-radius:14px;padding:8px;background:#0a1724}
-.ankle-visual img{width:100%;height:auto;display:block;border-radius:9px}
-@media(max-width:430px){.movement-demo img{height:230px}.mobility-visual img{height:150px}}
+/* Mobile-first movement demo cards: one large exercise per row */
+.movement-visual-stack{display:grid;grid-template-columns:1fr;gap:16px;margin:10px 0 18px}
+.movement-visual-card{overflow:hidden;border-radius:16px;border:1px solid rgba(34,184,255,.45);background:#08131f;box-shadow:0 0 16px rgba(34,184,255,.08);padding-bottom:12px}
+.movement-visual-card img{display:block;width:100%;height:auto;max-height:none!important;object-fit:contain;background:#f7fbff}
+.movement-visual-card b{display:block;color:#f8fbff;font-size:15px;margin:11px 13px 3px}
+.movement-visual-card span{display:block;color:#35C8FF;font-size:12px;font-weight:500;margin:0 13px}
+@media(max-width:430px){.movement-visual-card b{font-size:14px}.movement-visual-card span{font-size:11.5px}}
 </style></head><body>
 <header class="levelup-header">
   <div class="levelup-brand">
@@ -778,7 +771,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/hamstring_forward_fold_clean.jpg" alt="Hamstring Mobility visual example"></div>
+<details class="glossary-card"><summary>Hamstring Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/hamstring_forward_fold_photo.png" alt="Hamstring Mobility visual example"></div>
 <div class="glossary-label">What it means</div>
 <ul>
 <li>Enough posterior-chain range to hinge toward the floor comfortably.</li>
@@ -799,7 +792,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition"><div class="mobility-visual-grid"><div class="mobility-visual"><img src="assets/hip_9090_left.jpg" alt="90/90 hip position left side"><b>90/90 — LEFT SIDE</b></div><div class="mobility-visual"><img src="assets/hip_9090_right.jpg" alt="90/90 hip position right side"><b>90/90 — RIGHT SIDE</b></div></div><div class="ankle-visual"><img src="assets/ankle_knee_to_wall.jpg" alt="Knee-to-wall ankle mobility test with heel kept flat"></div><h4>What it means</h4><ul><li><b>Hip mobility:</b> use the 90/90 position on both sides to check controlled internal and external hip rotation.</li><li><b>Ankle mobility:</b> use a knee-to-wall test to check ankle dorsiflexion.</li></ul><h4>How to test the ankle</h4><ul><li>Face a wall with the test foot flat and pointing forward.</li><li>Drive the knee forward until it touches the wall while keeping the heel completely down.</li><li>Start with the toes about <b>10 cm from the wall</b>. If the knee cannot touch without the heel lifting, move the foot slightly closer and repeat.</li><li>The test is about how far the knee can travel over the toes without the heel lifting or the foot collapsing inward.</li><li>Repeat on both sides and compare control and range.</li></ul><h4>Level 15 pass</h4><ul><li>Complete the 90/90 hip position comfortably on both sides.</li><li>Aim for approximately <b>10 cm toe-to-wall</b> on both sides: knee touches the wall, heel stays flat, foot remains controlled and there is no major compensation.</li></ul></div></details>
+<details class="glossary-card"><summary>Hip &amp; Ankle Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/hip_ankle_human_tests.png" alt="90/90 hip rotation and knee-to-wall ankle mobility tests"></div><h4>What it means</h4><ul><li><b>Hip mobility:</b> use the 90/90 position on both sides to check controlled internal and external hip rotation.</li><li><b>Ankle mobility:</b> use a knee-to-wall test to check ankle dorsiflexion.</li></ul><h4>How to test the ankle</h4><ul><li>Face a wall with the test foot flat and pointing forward.</li><li>Drive the knee forward until it touches the wall while keeping the heel completely down.</li><li>Start with the toes about <b>10 cm from the wall</b>. If the knee cannot touch without the heel lifting, move the foot slightly closer and repeat.</li><li>The test is about how far the knee can travel over the toes without the heel lifting or the foot collapsing inward.</li><li>Repeat on both sides and compare control and range.</li></ul><h4>Level 15 pass</h4><ul><li>Complete the 90/90 hip position comfortably on both sides.</li><li>Aim for approximately <b>10 cm toe-to-wall</b> on both sides: knee touches the wall, heel stays flat, foot remains controlled and there is no major compensation.</li></ul></div></details>
 
 <details class="glossary-card"><summary>High-Kick Mobility</summary><div class="definition"><div class="glossary-illustration"><img src="assets/glossary_high_kick.png" alt="High-Kick Mobility visual example"></div>
 <div class="glossary-label">What it means</div>
@@ -822,12 +815,11 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition"><div class="movement-stack">
-<div class="movement-demo"><img src="assets/l17_1.jpg" alt="Squat jump demonstration"><strong>Squat Jump</strong><small>10 reps</small></div>
-<div class="movement-demo"><img src="assets/l17_2.jpg" alt="Forward broad jump demonstration"><strong>Forward Broad Jump</strong><small>5 reps • hold each landing ~2 sec</small></div>
-<div class="movement-demo"><img src="assets/l17_3.jpg" alt="Lateral jump demonstration"><strong>Lateral Jumps</strong><small>5 each direction</small></div>
-<div class="movement-demo"><img src="assets/l17_4.jpg" alt="Step drop landing demonstration"><strong>Step / Drop Landing</strong><small>5 reps from ~20–30 cm</small></div>
-<div class="movement-demo"><img src="assets/l17_5.jpg" alt="Landing hold demonstration"><strong>Landing Hold</strong><small>Hold ~2 seconds with control</small></div>
+<details class="glossary-card"><summary>Jumps &amp; Landings</summary><div class="definition"><div class="movement-visual-stack">
+<div class="movement-visual-card"><img src="assets/l17_squat_jump.png" alt="Squat jump demonstration"><b>Squat Jump</b><span>10 reps</span></div>
+<div class="movement-visual-card"><img src="assets/l17_broad_jump.png" alt="Forward broad jump and controlled landing demonstration"><b>Forward Broad Jump</b><span>5 reps • hold each landing ~2 sec</span></div>
+<div class="movement-visual-card"><img src="assets/l17_lateral_jumps.png" alt="Lateral jump demonstration"><b>Lateral Jumps</b><span>5 each direction</span></div>
+<div class="movement-visual-card"><img src="assets/l17_step_drop.png" alt="Step drop landing demonstration"><b>Step / Drop Landing</b><span>5 reps from ~20–30 cm</span></div>
 </div>
 <div class="glossary-label">Level 17 — Control</div>
 <ul>
@@ -847,12 +839,12 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </ul>
 </div></details>
 
-<details class="glossary-card"><summary>Plyometrics</summary><div class="definition"><div class="movement-stack">
-<div class="movement-demo"><img src="assets/l18_1.jpg" alt="Pogo jumps demonstration"><strong>Pogo Jumps</strong><small>10 continuous reps</small></div>
-<div class="movement-demo"><img src="assets/l18_2.jpg" alt="Continuous squat jumps demonstration"><strong>Continuous Squat Jumps</strong><small>8 continuous reps</small></div>
-<div class="movement-demo"><img src="assets/l18_3.jpg" alt="Powerful broad jumps demonstration"><strong>Powerful Broad Jumps</strong><small>5 reps</small></div>
-<div class="movement-demo"><img src="assets/l18_4.jpg" alt="Skater bounds demonstration"><strong>Skater Bounds</strong><small>10 reps • 5 each side</small></div>
-<div class="movement-demo"><img src="assets/l18_5.jpg" alt="Low box jumps demonstration"><strong>Low Box Jumps</strong><small>5 reps from ~20–30 cm • step down</small></div>
+<details class="glossary-card"><summary>Plyometrics</summary><div class="definition"><div class="movement-visual-stack">
+<div class="movement-visual-card"><img src="assets/l18_pogo_jumps.png" alt="Pogo jump demonstration"><b>Pogo Jumps</b><span>10 continuous reps</span></div>
+<div class="movement-visual-card"><img src="assets/l18_squat_jumps.png" alt="Continuous squat jump demonstration"><b>Continuous Squat Jumps</b><span>8 continuous reps</span></div>
+<div class="movement-visual-card"><img src="assets/l18_broad_jumps.png" alt="Powerful broad jump demonstration"><b>Powerful Broad Jumps</b><span>5 reps</span></div>
+<div class="movement-visual-card"><img src="assets/l18_skater_bounds.png" alt="Skater bound demonstration"><b>Skater Bounds</b><span>10 reps • 5 each side</span></div>
+<div class="movement-visual-card"><img src="assets/l18_low_box_jumps.png" alt="Low box jump demonstration"><b>Low Box Jumps</b><span>5 reps from ~20–30 cm • step down</span></div>
 </div>
 <div class="glossary-label">Level 18 — Explosiveness &amp; Reactivity</div>
 <ul>
@@ -946,10 +938,21 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 </div>
 
 <div class="demo-section-title">🦘 Jumps &amp; Landings — Level 17</div>
-<img class="demo-image" src="assets/level17_jumps_landings_portrait.png" alt="Level 17 jumps and landings movement guide">
+<div class="movement-visual-stack">
+<div class="movement-visual-card"><img src="assets/l17_squat_jump.png" alt="Squat jump demonstration"><b>Squat Jump</b><span>10 reps</span></div>
+<div class="movement-visual-card"><img src="assets/l17_broad_jump.png" alt="Forward broad jump demonstration"><b>Forward Broad Jump</b><span>5 reps • hold each landing ~2 sec</span></div>
+<div class="movement-visual-card"><img src="assets/l17_lateral_jumps.png" alt="Lateral jump demonstration"><b>Lateral Jumps</b><span>5 each direction</span></div>
+<div class="movement-visual-card"><img src="assets/l17_step_drop.png" alt="Step drop landing demonstration"><b>Step / Drop Landing</b><span>5 reps from ~20–30 cm</span></div>
+</div>
 <div class="demo-note"><b>Level 17:</b> prioritise control, quiet stable landings, knee tracking and no recovery steps.</div>
 <div class="demo-section-title">⚡ Plyometrics — Level 18</div>
-<img class="demo-image" src="assets/level18_plyometrics_portrait.png" alt="Level 18 plyometrics movement guide">
+<div class="movement-visual-stack">
+<div class="movement-visual-card"><img src="assets/l18_pogo_jumps.png" alt="Pogo jump demonstration"><b>Pogo Jumps</b><span>10 continuous reps</span></div>
+<div class="movement-visual-card"><img src="assets/l18_squat_jumps.png" alt="Continuous squat jump demonstration"><b>Continuous Squat Jumps</b><span>8 continuous reps</span></div>
+<div class="movement-visual-card"><img src="assets/l18_broad_jumps.png" alt="Broad jump demonstration"><b>Powerful Broad Jumps</b><span>5 reps</span></div>
+<div class="movement-visual-card"><img src="assets/l18_skater_bounds.png" alt="Skater bound demonstration"><b>Skater Bounds</b><span>10 reps • 5 each side</span></div>
+<div class="movement-visual-card"><img src="assets/l18_low_box_jumps.png" alt="Low box jump demonstration"><b>Low Box Jumps</b><span>5 reps from ~20–30 cm • step down</span></div>
+</div>
 <div class="demo-note"><b>Level 18:</b> build explosiveness and reactivity while maintaining landing control and consistent technique.</div>
 </div>
 </div>
@@ -960,6 +963,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
     </button>
     <button id="rankingsTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">🏆</span><span>Rankings</span></button>
     <button id="levelsTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">⚡</span><span>Levels</span></button>
+    
     <button id="glossaryTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">📖</span><span>Glossary</span></button>
     <button id="demosTabBtn" class="tab-btn" type="button" aria-selected="false"><span class="tab-icon">🎬</span><span>Demos</span></button>
   </div>
