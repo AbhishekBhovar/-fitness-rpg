@@ -26,3 +26,10 @@ Existing approved images were reused where the exact character already had a ver
 - Cleaned the LEVEL UP logo edge/background to remove brown corner patches.
 - Replaced the Pogo Jumps demo with a cleaner, lower-border visual.
 - Retains compact Spider-Man artwork and prior merged Guide fixes.
+
+## V33 Guide visual standardisation
+- Standardised Guide movement visuals to a consistent dark navy/cyan visual system.
+- New visuals use contained 4:3 presentation to prevent head/feet/text cropping on iPhone.
+- Jumps & Landings and Plyometrics visuals remain only in their own assessment sections.
+- Assessments Achieved now has its own outer card, separate from Cardio.
+- No daily steps task was added.
