@@ -884,7 +884,15 @@ function highestOverall(d){let out=0;for(const req of levels){if(levelPass(req,d
 function strengthLevel(k,d){let out=0;for(const req of levels)if(d[k]>=req[k])out=req.level;return Math.min(out,mastery[k])}
 function chinLevel(d){let out=0;for(const req of levels)if(chinPass(req,d))out=req.level;return out}
 function cardioLevel(d){let out=0;for(const req of levels)if(cardioPass(req,d))out=req.level;return out}
-function assessLevel(d){let out=11;for(const req of levels){if(req.assessment&&!d.assess[req.assessment])break;out=req.level}return Math.max(0,out)}
+function assessLevel(d){
+  let out=0;
+  for(const req of levels){
+    if(!req.assessment) continue;
+    if(!d.assess[req.assessment]) break;
+    out=req.level;
+  }
+  return out;
+}
 function fmtChin(r){if(r.chin_type==='assist')return `${r.chin_value} kg assist ×${r.chin_reps}`;if(r.chin_type==='bw')return `Bodyweight ×${r.chin_reps}`;return `+${r.chin_value} kg ×${r.chin_reps}`}
 function fmtTime(sec){return `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`}
 function fmtCardio(r){if(r.cardio_type==='incline')return `${r.cardio_a.toFixed(2)} km @12% / 15 min`;if(r.cardio_type==='combo')return `${r.cardio_a.toFixed(2)} km @12% + ${r.cardio_b} stairs`;if(r.cardio_type==='run')return `${r.cardio_a} km continuous`;if(r.cardio_type==='5k')return `5K ≤${fmtTime(r.cardio_a)}`;return `5K ≤${fmtTime(r.cardio_a)} + 10K ≤${fmtTime(r.cardio_b)}`}
