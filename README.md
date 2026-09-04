@@ -33,3 +33,7 @@ Existing approved images were reused where the exact character already had a ver
 - Jumps & Landings and Plyometrics visuals remain only in their own assessment sections.
 - Assessments Achieved now has its own outer card, separate from Cardio.
 - No daily steps task was added.
+
+
+## V34 Guide image sizing fix
+Standardized Guide artwork now uses tight source crops and each visual keeps its natural aspect ratio. No forced 4:3 canvas, so movement images fill the card without chopping heads/feet or floating inside large empty navy boxes.

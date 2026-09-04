@@ -707,8 +707,31 @@ html{background:#050b12}.wrap{padding-bottom:96px!important}.card{border:1px sol
 
 /* v33 Guide visual standardisation */
 .assessment-section-card{margin-top:16px!important}
-.guide-media img,.movement-visual-card img{aspect-ratio:4/3!important;width:100%!important;height:auto!important;object-fit:contain!important;object-position:center!important;background:#08233a!important;border-radius:12px!important}
+.guide-media img,.movement-visual-card img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center!important;background:#08233a!important;border-radius:12px!important}
 .movement-visual-card{background:#08131f!important;border:1px solid rgba(34,184,255,.20)!important;border-radius:14px!important;padding:8px!important;overflow:hidden!important}
+</style>
+
+
+<style id="v34-guide-natural-ratio">
+.guide-media,
+.movement-visual-stack{align-items:start!important}
+.guide-media img,
+.movement-visual-card img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;
+}
+.guide-media{
+  background:transparent!important;
+}
+.movement-visual-card{
+  overflow:hidden!important;
+}
 </style>
 
 </head><body>
