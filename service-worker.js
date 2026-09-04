@@ -1,4 +1,4 @@
-const CACHE='level-up-fitness-v36-image-audit-20260904';
+const CACHE='level-up-fitness-v38-clean-assets-20260904';
 const PREFIX='level-up-fitness-';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png','./assets/level_up_logo_clean.png'])))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
