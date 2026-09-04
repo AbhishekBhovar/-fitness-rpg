@@ -19,3 +19,10 @@ Existing approved images were reused where the exact character already had a ver
 ## v31 visual fix
 - Level 28 Tobey Spider-Man portrait shortened/cropped for iPhone portrait layout.
 - Character level cards capped to a compact height.
+
+## v32 visual/assessment update
+- Replaced L14 duplicate forward-fold test with objective **Straddle Flexibility**: 90°+ seated straddle, knees straight, forearms flat between legs for 10 seconds; 1 successful hold within 3 attempts.
+- Added a dedicated wide-straddle visual to Guide.
+- Cleaned the LEVEL UP logo edge/background to remove brown corner patches.
+- Replaced the Pogo Jumps demo with a cleaner, lower-border visual.
+- Retains compact Spider-Man artwork and prior merged Guide fixes.
