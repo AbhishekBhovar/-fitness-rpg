@@ -14,3 +14,8 @@ GitHub Pages-ready PWA.
 
 ## Character artwork
 Existing approved images were reused where the exact character already had a verified asset. New roster characters without a verified asset use a clean placeholder slot so no incorrect image is silently substituted.
+
+
+## v31 visual fix
+- Level 28 Tobey Spider-Man portrait shortened/cropped for iPhone portrait layout.
+- Character level cards capped to a compact height.
