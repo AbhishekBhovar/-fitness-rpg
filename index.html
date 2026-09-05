@@ -889,74 +889,75 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 
 
 
-/* V55 — single fiery energy sphere image grows smoothly behind loading */
-#powerSplash .energy-bg{
+
+/* V56 — pure CSS single fiery energy orb; no mock-up image */
+#powerSplash .energy-orb{
   position:absolute;
-  left:50%;
-  top:50%;
-  width:26vmin;
-  aspect-ratio:9/16;
-  transform:translate(-50%,-50%) scale(.08);
-  opacity:0;
+  left:50%; top:50%;
+  width:18vmin; height:18vmin;
+  border-radius:50%;
   z-index:2;
   pointer-events:none;
-  background:url('assets/loading_energy_sphere_v55.png') center/contain no-repeat;
-  filter:brightness(.72) saturate(.9) drop-shadow(0 0 10px rgba(255,190,0,.28));
-  animation:energySphereGrow 8s linear forwards;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.10);
+  background:
+    radial-gradient(circle at 50% 50%,
+      #fffde5 0%,
+      #fff5a3 9%,
+      #ffd83d 20%,
+      #ffad00 38%,
+      rgba(255,119,0,.92) 55%,
+      rgba(255,76,0,.52) 70%,
+      rgba(255,128,0,.12) 84%,
+      transparent 100%);
+  box-shadow:
+    0 0 18px rgba(255,250,190,.95),
+    0 0 42px rgba(255,211,45,.90),
+    0 0 85px rgba(255,153,0,.72),
+    0 0 150px rgba(255,91,0,.42);
+  animation:singleOrbGrow 8s linear forwards;
 }
-@keyframes energySphereGrow{
-  0%,24.9%{
-    opacity:0;
-    transform:translate(-50%,-50%) scale(.08);
-    filter:brightness(.55) saturate(.7) drop-shadow(0 0 0 rgba(255,190,0,0));
-  }
-  25%{
-    opacity:.10;
-    transform:translate(-50%,-50%) scale(.10);
-    filter:brightness(.62) saturate(.78) drop-shadow(0 0 5px rgba(255,190,0,.20));
-  }
-  35%{
-    opacity:.22;
-    transform:translate(-50%,-50%) scale(.36);
-    filter:brightness(.72) saturate(.85) drop-shadow(0 0 12px rgba(255,190,0,.32));
-  }
-  50%{
-    opacity:.40;
-    transform:translate(-50%,-50%) scale(.90);
-    filter:brightness(.82) saturate(.92) drop-shadow(0 0 20px rgba(255,190,0,.42));
-  }
-  65%{
-    opacity:.60;
-    transform:translate(-50%,-50%) scale(1.75);
-    filter:brightness(.95) saturate(1) drop-shadow(0 0 32px rgba(255,190,0,.56));
-  }
-  78%{
-    opacity:.78;
-    transform:translate(-50%,-50%) scale(2.85);
-    filter:brightness(1.08) saturate(1.03) drop-shadow(0 0 42px rgba(255,205,0,.68));
-  }
-  90%{
-    opacity:.93;
-    transform:translate(-50%,-50%) scale(4.2);
-    filter:brightness(1.22) saturate(1.05) drop-shadow(0 0 58px rgba(255,220,70,.82));
-  }
-  100%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(6.2);
-    filter:brightness(1.40) saturate(1.04) drop-shadow(0 0 80px rgba(255,235,120,.96));
-  }
+#powerSplash .energy-orb::before{
+  content:"";
+  position:absolute;
+  inset:-14%;
+  border-radius:50%;
+  background:
+    conic-gradient(from 10deg,
+      transparent 0 7%,
+      rgba(255,225,75,.38) 9%,
+      transparent 13% 24%,
+      rgba(255,145,0,.30) 27%,
+      transparent 31% 46%,
+      rgba(255,238,126,.30) 49%,
+      transparent 53% 70%,
+      rgba(255,118,0,.28) 74%,
+      transparent 79% 100%);
+  filter:blur(8px);
+  animation:orbFireDrift 1.8s linear infinite;
+}
+@keyframes singleOrbGrow{
+  0%,19.9%{opacity:0;transform:translate(-50%,-50%) scale(.10)}
+  20%{opacity:.12;transform:translate(-50%,-50%) scale(.14)}
+  35%{opacity:.30;transform:translate(-50%,-50%) scale(.70)}
+  50%{opacity:.48;transform:translate(-50%,-50%) scale(1.55)}
+  65%{opacity:.66;transform:translate(-50%,-50%) scale(2.75)}
+  78%{opacity:.82;transform:translate(-50%,-50%) scale(4.15)}
+  90%{opacity:.94;transform:translate(-50%,-50%) scale(5.8)}
+  100%{opacity:1;transform:translate(-50%,-50%) scale(8.2)}
+}
+@keyframes orbFireDrift{
+  from{transform:rotate(0deg) scale(.98)}
+  to{transform:rotate(360deg) scale(1.04)}
 }
 #powerSplash .splash-core{z-index:6!important}
-#powerSplash .flash{
-  animation:energyFinalFlash 8s linear forwards!important;
-}
-@keyframes energyFinalFlash{
-  0%,90%{opacity:0}
-  94%{opacity:.10}
-  96%{opacity:.28}
-  97.5%{opacity:.55}
-  98.6%{opacity:.82}
-  99.3%{opacity:1}
+#powerSplash .flash{animation:v56FinalFlash 8s linear forwards!important}
+@keyframes v56FinalFlash{
+  0%,91%{opacity:0}
+  95%{opacity:.12}
+  97%{opacity:.38}
+  98.5%{opacity:.72}
+  99.3%{opacity:.96}
   100%{opacity:0}
 }
 
@@ -1084,7 +1085,7 @@ html{background:#050b12}.wrap{padding-bottom:96px!important}.card{border:1px sol
 }
 </style>
 </head><body><div id="powerSplash" aria-label="Level Up loading screen">
-  <div class="aura"></div><div class="energy-bg"></div>
+  <div class="aura"></div><div class="energy-orb"></div>
   <div class="shock"></div>
   <div class="flash"></div>
   <div class="bolt b1"></div>
@@ -1184,7 +1185,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v55'; let first=true;
+ const ver='v56'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=8000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
