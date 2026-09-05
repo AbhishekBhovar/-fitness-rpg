@@ -1537,6 +1537,144 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   100%{opacity:0;transform:translate(-50%,-50%) scale(10)}
 }
 
+
+/* V68 — stable centered loading UI + true 7s lightning buildup */
+
+/* Lock loading text/progress in one fixed centered position. */
+#powerSplash .splash-core{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  width:min(82vw,420px)!important;
+  min-height:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  margin:0!important;
+  z-index:10!important;
+  animation:none!important;
+}
+#powerSplash .splash-title{
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+  animation:none!important;
+  letter-spacing:.16em!important;
+  line-height:1.1!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+}
+#powerSplash .splash-sub{
+  margin:10px 0 0!important;
+  padding:0!important;
+  transform:none!important;
+  animation:none!important;
+  text-align:center!important;
+  line-height:1.25!important;
+  white-space:nowrap!important;
+}
+#powerSplash .splash-track{
+  width:min(78vw,340px)!important;
+  margin:22px auto 0!important;
+  transform:none!important;
+  position:relative!important;
+}
+#powerSplash .splash-bar{
+  transform:none!important;
+}
+
+/* Start completely calm. First strike only after 1.5 seconds.
+   Then add bolts progressively until the final section is chaotic. */
+#powerSplash .strike1{animation:v68Bolt1 1.15s 1.50s infinite!important}
+#powerSplash .strike2{animation:v68Bolt2 .98s 2.30s infinite!important}
+#powerSplash .strike3{animation:v68Bolt3 .82s 3.05s infinite!important}
+#powerSplash .strike4{animation:v68Bolt2 .68s 3.75s infinite reverse!important}
+#powerSplash .strike5{animation:v68Bolt1 .54s 4.35s infinite!important}
+#powerSplash .strike6{animation:v68Bolt3 .42s 4.85s infinite reverse!important}
+#powerSplash .strike7{animation:v68Bolt1 .32s 5.20s infinite!important}
+
+@keyframes v68Bolt1{
+  0%,62%,100%{opacity:0}
+  64%{opacity:.20}
+  67%{opacity:1}
+  70%{opacity:.08}
+  76%{opacity:.82}
+  80%{opacity:0}
+}
+@keyframes v68Bolt2{
+  0%,46%,73%,100%{opacity:0}
+  48%{opacity:.80}
+  51%{opacity:1}
+  54%{opacity:0}
+  75%{opacity:.52}
+  78%{opacity:1}
+  81%{opacity:0}
+}
+@keyframes v68Bolt3{
+  0%,29%,55%,76%,100%{opacity:0}
+  31%{opacity:1}
+  34%{opacity:.12}
+  37%{opacity:0}
+  57%{opacity:.72}
+  60%{opacity:1}
+  63%{opacity:0}
+  78%{opacity:1}
+  82%{opacity:0}
+}
+
+/* Ambient blue illumination also starts from zero and builds slowly. */
+#powerSplash .thunder-flash{
+  animation:v68AmbientBuild 7s linear forwards!important;
+}
+@keyframes v68AmbientBuild{
+  0%,20%{opacity:0}
+  24%{opacity:.025}
+  34%{opacity:.055}
+  44%{opacity:.10}
+  54%{opacity:.16}
+  64%{opacity:.24}
+  72%{opacity:.34}
+  80%{opacity:.46}
+  87%{opacity:.58}
+  92%{opacity:.70}
+  96%{opacity:.82}
+  100%{opacity:.94}
+}
+
+/* Retain V66-style impact ending, simply retimed to 7 seconds. */
+#powerSplash .flash{
+  animation:v68ImpactDetonation 7s steps(1,end) forwards!important;
+}
+@keyframes v68ImpactDetonation{
+  0%,94.2%{opacity:0}
+  94.4%{opacity:.16}
+  94.8%{opacity:0}
+  95.2%{opacity:.42}
+  95.6%{opacity:.08}
+  96.0%{opacity:.74}
+  96.4%{opacity:.15}
+  96.8%{opacity:1}
+  99.0%{opacity:1}
+  99.25%{opacity:.92}
+  99.48%{opacity:1}
+  99.72%{opacity:.78}
+  100%{opacity:0}
+}
+#powerSplash .shock{
+  animation:v68ShockBloom 7s cubic-bezier(.05,.86,.08,1) forwards!important;
+}
+@keyframes v68ShockBloom{
+  0%,96.1%{opacity:0;transform:translate(-50%,-50%) scale(.12)}
+  96.3%{opacity:.95;transform:translate(-50%,-50%) scale(.22)}
+  96.9%{opacity:.78;transform:translate(-50%,-50%) scale(1.3)}
+  97.7%{opacity:.48;transform:translate(-50%,-50%) scale(3.8)}
+  98.9%{opacity:.18;transform:translate(-50%,-50%) scale(7.2)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(10)}
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1799,9 +1937,9 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v67'; let first=true;
+ const ver='v68'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
- const duration=6000;
+ const duration=7000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
  setTimeout(()=>{splash.classList.add('splash-hide');try{localStorage.setItem('levelUpSplashVersion',ver)}catch(e){}setTimeout(()=>splash.remove(),650)},duration);
 })();
