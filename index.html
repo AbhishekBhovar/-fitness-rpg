@@ -888,183 +888,76 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 #powerSplash img,#powerSplash .splash-logo{display:none!important;visibility:hidden!important;opacity:0!important}
 
 
-/* V53 — 8s transformation: lightning for 4s, then expanding Kamehameha for 4s */
-#powerSplash .kamehameha{
+
+/* V55 — single fiery energy sphere image grows smoothly behind loading */
+#powerSplash .energy-bg{
   position:absolute;
   left:50%;
   top:50%;
-  width:15vmin;
-  height:15vmin;
-  transform:translate(-50%,-50%) scale(.12);
-  border-radius:50%;
+  width:26vmin;
+  aspect-ratio:9/16;
+  transform:translate(-50%,-50%) scale(.08);
   opacity:0;
   z-index:2;
   pointer-events:none;
-  animation:kameExpand 8s linear forwards;
+  background:url('assets/loading_energy_sphere_v55.png') center/contain no-repeat;
+  filter:brightness(.72) saturate(.9) drop-shadow(0 0 10px rgba(255,190,0,.28));
+  animation:energySphereGrow 8s linear forwards;
 }
-#powerSplash .kame-core{
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background:
-    radial-gradient(circle,
-      rgba(255,255,255,1) 0%,
-      rgba(255,250,190,.98) 13%,
-      rgba(255,226,76,.95) 29%,
-      rgba(255,183,0,.88) 48%,
-      rgba(255,128,0,.50) 68%,
-      rgba(255,104,0,.10) 82%,
-      transparent 100%);
-  box-shadow:
-    0 0 20px rgba(255,245,190,.95),
-    0 0 55px rgba(255,214,55,.95),
-    0 0 120px rgba(255,166,0,.82),
-    0 0 210px rgba(255,126,0,.48);
-  filter:blur(.4px);
-}
-#powerSplash .kame-core:before,
-#powerSplash .kame-core:after{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:50%;
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  pointer-events:none;
-}
-#powerSplash .kame-core:before{
-  width:155%;
-  height:155%;
-  border:2px solid rgba(255,231,98,.46);
-  box-shadow:0 0 25px rgba(255,211,43,.75);
-  animation:none;
-}
-#powerSplash .kame-core:after{
-  width:225%;
-  height:225%;
-  border:1px solid rgba(255,183,0,.20);
-  box-shadow:0 0 45px rgba(255,160,0,.45);
-  animation:none;
-}
-#powerSplash .kame-ring{
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:140%;
-  height:140%;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  border:3px solid rgba(255,238,133,.72);
-  box-shadow:0 0 24px rgba(255,225,72,.68);
-  opacity:0;
-  animation:kameRing 8s ease-out forwards;
-}
-@keyframes kameExpand{
-  0%,37.49%{
+@keyframes energySphereGrow{
+  0%,24.9%{
     opacity:0;
+    transform:translate(-50%,-50%) scale(.08);
+    filter:brightness(.55) saturate(.7) drop-shadow(0 0 0 rgba(255,190,0,0));
+  }
+  25%{
+    opacity:.10;
     transform:translate(-50%,-50%) scale(.10);
+    filter:brightness(.62) saturate(.78) drop-shadow(0 0 5px rgba(255,190,0,.20));
   }
-  37.5%{
-    opacity:.16;
-    transform:translate(-50%,-50%) scale(.14);
+  35%{
+    opacity:.22;
+    transform:translate(-50%,-50%) scale(.36);
+    filter:brightness(.72) saturate(.85) drop-shadow(0 0 12px rgba(255,190,0,.32));
   }
-  45%{
-    opacity:.32;
-    transform:translate(-50%,-50%) scale(.65);
-  }
-  55%{
-    opacity:.48;
-    transform:translate(-50%,-50%) scale(1.55);
+  50%{
+    opacity:.40;
+    transform:translate(-50%,-50%) scale(.90);
+    filter:brightness(.82) saturate(.92) drop-shadow(0 0 20px rgba(255,190,0,.42));
   }
   65%{
-    opacity:.64;
-    transform:translate(-50%,-50%) scale(2.8);
+    opacity:.60;
+    transform:translate(-50%,-50%) scale(1.75);
+    filter:brightness(.95) saturate(1) drop-shadow(0 0 32px rgba(255,190,0,.56));
   }
-  75%{
+  78%{
     opacity:.78;
-    transform:translate(-50%,-50%) scale(4.5);
+    transform:translate(-50%,-50%) scale(2.85);
+    filter:brightness(1.08) saturate(1.03) drop-shadow(0 0 42px rgba(255,205,0,.68));
   }
-  85%{
-    opacity:.90;
-    transform:translate(-50%,-50%) scale(6.8);
-  }
-  93%{
-    opacity:.98;
-    transform:translate(-50%,-50%) scale(9.3);
+  90%{
+    opacity:.93;
+    transform:translate(-50%,-50%) scale(4.2);
+    filter:brightness(1.22) saturate(1.05) drop-shadow(0 0 58px rgba(255,220,70,.82));
   }
   100%{
     opacity:1;
-    transform:translate(-50%,-50%) scale(12.5);
+    transform:translate(-50%,-50%) scale(6.2);
+    filter:brightness(1.40) saturate(1.04) drop-shadow(0 0 80px rgba(255,235,120,.96));
   }
 }
-  50%{
-    opacity:.18;
-    transform:translate(-50%,-50%) scale(.20);
-  }
-  58%{
-    opacity:.50;
-    transform:translate(-50%,-50%) scale(.70);
-  }
-  68%{
-    opacity:.78;
-    transform:translate(-50%,-50%) scale(1.65);
-  }
-  80%{
-    opacity:.94;
-    transform:translate(-50%,-50%) scale(3.5);
-  }
-  92%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(7.5);
-  }
-  100%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(13);
-  }
-}
-@keyframes kamePulse{
-  from{transform:translate(-50%,-50%) scale(.90);opacity:.45}
-  to{transform:translate(-50%,-50%) scale(1.12);opacity:1}
-}
-@keyframes kameRing{
-  0%,37.49%{opacity:0;transform:translate(-50%,-50%) scale(.12)}
-  37.5%{opacity:.18;transform:translate(-50%,-50%) scale(.16)}
-  55%{opacity:.42;transform:translate(-50%,-50%) scale(1.2)}
-  75%{opacity:.36;transform:translate(-50%,-50%) scale(3.4)}
-  90%{opacity:.20;transform:translate(-50%,-50%) scale(6.7)}
-  100%{opacity:0;transform:translate(-50%,-50%) scale(9.5)}
-}
-  62%{opacity:.72;transform:translate(-50%,-50%) scale(.85)}
-  78%{opacity:.45;transform:translate(-50%,-50%) scale(2.4)}
-  100%{opacity:0;transform:translate(-50%,-50%) scale(8)}
-}
-
-/* Keep lightning active through the full eight seconds. */
-#powerSplash .b1{animation:boltCharge 1.08s .12s infinite!important}
-#powerSplash .b2{animation:boltCharge 1.18s .43s infinite!important}
-#powerSplash .b3{animation:boltCharge 1.12s .78s infinite!important}
-#powerSplash .b4{animation:boltCharge 1.04s .26s infinite!important}
-#powerSplash .b5{animation:boltCharge .92s 1.05s infinite!important}
-
-/* Loading text/bar stay above the growing energy sphere. */
 #powerSplash .splash-core{z-index:6!important}
-
-/* Let the growing energy sphere become the final screen-filling light source. */
 #powerSplash .flash{
-  animation:kameFinalFlash 8s linear forwards!important;
+  animation:energyFinalFlash 8s linear forwards!important;
 }
-@keyframes kameFinalFlash{
+@keyframes energyFinalFlash{
   0%,90%{opacity:0}
-  93%{opacity:.08}
-  95%{opacity:.22}
-  97%{opacity:.48}
-  98.3%{opacity:.78}
-  99.2%{opacity:.96}
+  94%{opacity:.10}
+  96%{opacity:.28}
+  97.5%{opacity:.55}
+  98.6%{opacity:.82}
+  99.3%{opacity:1}
   100%{opacity:0}
-}
-
-@media(prefers-reduced-motion:reduce){
-  #powerSplash .kamehameha,#powerSplash .kame-ring,#powerSplash .kame-core:before,#powerSplash .kame-core:after{animation:none!important}
 }
 
 </style>
@@ -1191,7 +1084,7 @@ html{background:#050b12}.wrap{padding-bottom:96px!important}.card{border:1px sol
 }
 </style>
 </head><body><div id="powerSplash" aria-label="Level Up loading screen">
-  <div class="aura"></div><div class="kamehameha"><div class="kame-core"></div><div class="kame-ring"></div></div>
+  <div class="aura"></div><div class="energy-bg"></div>
   <div class="shock"></div>
   <div class="flash"></div>
   <div class="bolt b1"></div>
@@ -1291,7 +1184,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v54'; let first=true;
+ const ver='v55'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=8000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
