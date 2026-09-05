@@ -1675,6 +1675,128 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   100%{opacity:0;transform:translate(-50%,-50%) scale(10)}
 }
 
+
+/* V69 — true delayed storm. Old straight bolt divs are disabled completely.
+   Only the branching SVG Thor lightning is used. */
+
+/* Kill all legacy straight/ray lightning that was appearing from frame 1. */
+#powerSplash > .bolt,
+#powerSplash .bolt.b1,#powerSplash .bolt.b2,#powerSplash .bolt.b3,#powerSplash .bolt.b4,
+#powerSplash .bolt.b5,#powerSplash .bolt.b6,#powerSplash .bolt.b7,#powerSplash .bolt.b8,
+#powerSplash .bolt.b9,#powerSplash .bolt.b10{
+  display:none!important;
+  animation:none!important;
+  opacity:0!important;
+}
+
+/* Keep loading UI rock solid. */
+#powerSplash .splash-core{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  width:min(82vw,420px)!important;
+  min-height:0!important;
+  margin:0!important;
+  animation:none!important;
+  z-index:10!important;
+}
+#powerSplash .splash-title,
+#powerSplash .splash-sub,
+#powerSplash .splash-track,
+#powerSplash .splash-bar{
+  transform:none!important;
+}
+
+/* 0–2.0s: absolutely no lightning.
+   Then one branch appears, then more join slowly, ending in chaos. */
+#powerSplash .strike1{animation:v69BoltA 1.28s 2.00s infinite!important}
+#powerSplash .strike2{animation:v69BoltB 1.10s 3.10s infinite!important}
+#powerSplash .strike3{animation:v69BoltC .94s 4.15s infinite!important}
+#powerSplash .strike4{animation:v69BoltB .78s 5.05s infinite reverse!important}
+#powerSplash .strike5{animation:v69BoltA .64s 5.85s infinite!important}
+#powerSplash .strike6{animation:v69BoltC .50s 6.55s infinite reverse!important}
+#powerSplash .strike7{animation:v69BoltA .38s 7.10s infinite!important}
+
+@keyframes v69BoltA{
+  0%,60%,100%{opacity:0}
+  63%{opacity:.18}
+  66%{opacity:1}
+  69%{opacity:.05}
+  74%{opacity:.72}
+  79%{opacity:0}
+}
+@keyframes v69BoltB{
+  0%,43%,70%,100%{opacity:0}
+  46%{opacity:.72}
+  49%{opacity:1}
+  53%{opacity:0}
+  73%{opacity:.48}
+  76%{opacity:1}
+  80%{opacity:0}
+}
+@keyframes v69BoltC{
+  0%,27%,51%,72%,100%{opacity:0}
+  30%{opacity:.92}
+  33%{opacity:1}
+  36%{opacity:0}
+  54%{opacity:.66}
+  57%{opacity:1}
+  61%{opacity:0}
+  75%{opacity:1}
+  80%{opacity:0}
+}
+
+/* Ambient illumination also stays fully off for the first 2 seconds. */
+#powerSplash .thunder-flash{
+  animation:v69AmbientBuild 9s linear forwards!important;
+}
+@keyframes v69AmbientBuild{
+  0%,22%{opacity:0}
+  27%{opacity:.025}
+  36%{opacity:.05}
+  45%{opacity:.09}
+  55%{opacity:.15}
+  64%{opacity:.23}
+  72%{opacity:.32}
+  80%{opacity:.44}
+  87%{opacity:.58}
+  92%{opacity:.71}
+  96%{opacity:.84}
+  100%{opacity:.95}
+}
+
+/* Final impact: same good radial blast, retimed to 9s. */
+#powerSplash .flash{
+  animation:v69ImpactDetonation 9s steps(1,end) forwards!important;
+}
+@keyframes v69ImpactDetonation{
+  0%,94.6%{opacity:0}
+  94.8%{opacity:.14}
+  95.15%{opacity:0}
+  95.5%{opacity:.36}
+  95.85%{opacity:.06}
+  96.2%{opacity:.68}
+  96.55%{opacity:.12}
+  96.9%{opacity:1}
+  99.05%{opacity:1}
+  99.3%{opacity:.90}
+  99.55%{opacity:1}
+  99.78%{opacity:.76}
+  100%{opacity:0}
+}
+#powerSplash .shock{
+  animation:v69ShockBloom 9s cubic-bezier(.05,.86,.08,1) forwards!important;
+}
+@keyframes v69ShockBloom{
+  0%,96.2%{opacity:0;transform:translate(-50%,-50%) scale(.12)}
+  96.4%{opacity:.95;transform:translate(-50%,-50%) scale(.22)}
+  97.0%{opacity:.78;transform:translate(-50%,-50%) scale(1.3)}
+  97.8%{opacity:.48;transform:translate(-50%,-50%) scale(3.8)}
+  98.9%{opacity:.18;transform:translate(-50%,-50%) scale(7.2)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(10)}
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1937,9 +2059,9 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v68'; let first=true;
+ const ver='v69'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
- const duration=7000;
+ const duration=9000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
  setTimeout(()=>{splash.classList.add('splash-hide');try{localStorage.setItem('levelUpSplashVersion',ver)}catch(e){}setTimeout(()=>splash.remove(),650)},duration);
 })();
