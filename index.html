@@ -1317,6 +1317,116 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   100%{opacity:0}
 }
 
+
+/* V65 — 5 sec storm: sparse start -> increasingly violent branching lightning */
+#powerSplash::after{animation:superSaiyanFlood 5s cubic-bezier(.2,.72,.18,1) forwards!important}
+#powerSplash .thunder-flash{animation:thorAmbientV65 5s linear forwards!important}
+
+/* Each bolt joins later; by the final second all seven are striking rapidly. */
+#powerSplash .strike1{animation:v65Bolt1 1.15s .05s infinite!important}
+#powerSplash .strike2{animation:v65Bolt2 .92s 1.05s infinite!important}
+#powerSplash .strike3{animation:v65Bolt3 .72s 1.85s infinite!important}
+#powerSplash .strike4{animation:v65Bolt2 .59s 2.55s infinite reverse!important}
+#powerSplash .strike5{animation:v65Bolt1 .48s 3.05s infinite!important}
+#powerSplash .strike6{animation:v65Bolt3 .39s 3.48s infinite reverse!important}
+#powerSplash .strike7{animation:v65Bolt1 .31s 3.78s infinite!important}
+
+@keyframes v65Bolt1{
+  0%,64%,100%{opacity:0}
+  66%{opacity:.28} 69%{opacity:1} 72%{opacity:.08}
+  77%{opacity:.82} 80%{opacity:0}
+}
+@keyframes v65Bolt2{
+  0%,48%,74%,100%{opacity:0}
+  50%{opacity:.85} 53%{opacity:1} 56%{opacity:0}
+  76%{opacity:.52} 79%{opacity:1} 82%{opacity:0}
+}
+@keyframes v65Bolt3{
+  0%,30%,57%,78%,100%{opacity:0}
+  32%{opacity:1} 35%{opacity:.10} 38%{opacity:0}
+  59%{opacity:.72} 62%{opacity:1} 65%{opacity:0}
+  80%{opacity:1} 84%{opacity:0}
+}
+
+@keyframes thorAmbientV65{
+  0%{opacity:.01}
+  20%{opacity:.05}
+  21%{opacity:.01}
+  38%{opacity:.10}
+  39%{opacity:.025}
+  55%{opacity:.17}
+  56%{opacity:.04}
+  68%{opacity:.26}
+  69%{opacity:.06}
+  78%{opacity:.38}
+  79%{opacity:.10}
+  87%{opacity:.52}
+  92%{opacity:.68}
+  96%{opacity:.82}
+  100%{opacity:1}
+}
+
+/* Final flash begins as a narrow vertical blue-white strike,
+   then explosively expands sideways until it covers the entire screen. */
+#powerSplash .flash{
+  top:0!important;bottom:0!important;
+  left:50%!important;right:auto!important;
+  width:100%!important;height:100%!important;
+  transform-origin:center center!important;
+  background:
+    linear-gradient(90deg,
+      #fff 0%,#fff 34%,
+      #e7fbff 45%,#fff 50%,
+      #e7fbff 55%,#fff 66%,#fff 100%)!important;
+  box-shadow:
+    inset 0 0 90px #fff,
+    inset 0 0 260px rgba(120,230,255,1),
+    0 0 240px rgba(0,180,255,1)!important;
+  animation:v65VerticalDetonation 5s cubic-bezier(.12,.82,.12,1) forwards!important;
+}
+@keyframes v65VerticalDetonation{
+  0%,94.2%{
+    opacity:0;
+    transform:translateX(-50%) scaleX(.006);
+  }
+  94.35%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(.012);
+  }
+  95.0%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(.035);
+  }
+  95.7%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(.10);
+  }
+  96.35%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(.25);
+  }
+  97.0%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(.52);
+  }
+  97.55%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(.82);
+  }
+  98.0%,99.35%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(1.08);
+  }
+  99.65%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(1.15);
+  }
+  100%{
+    opacity:0;
+    transform:translateX(-50%) scaleX(1.18);
+  }
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1579,9 +1689,9 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v64'; let first=true;
+ const ver='v65'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
- const duration=4000;
+ const duration=5000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
  setTimeout(()=>{splash.classList.add('splash-hide');try{localStorage.setItem('levelUpSplashVersion',ver)}catch(e){}setTimeout(()=>splash.remove(),650)},duration);
 })();
