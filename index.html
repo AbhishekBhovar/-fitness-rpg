@@ -1223,6 +1223,100 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   100%{opacity:0}
 }
 
+
+/* V64 — Thor-style lightning: no rays, no fireworks, only branching electrical strikes */
+#powerSplash .saiyan-beam,#powerSplash .saiyan-aura,#powerSplash .spike{display:none!important}
+#powerSplash .thor-storm{
+  position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none;
+  overflow:visible;
+}
+#powerSplash .thor-storm .strike{opacity:0}
+#powerSplash .thor-storm path{
+  fill:none;stroke-linecap:round;stroke-linejoin:round;
+}
+#powerSplash .thor-storm .mainbolt{
+  stroke:#f5fdff;stroke-width:2.3;
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px #52d8ff) drop-shadow(0 0 18px #008cff);
+}
+#powerSplash .thor-storm .branch{
+  stroke:#76e4ff;stroke-width:1.05;
+  filter:drop-shadow(0 0 5px #00a8ff);
+}
+#powerSplash .strike1{animation:thorStrikeA .57s .04s infinite}
+#powerSplash .strike2{animation:thorStrikeB .71s .17s infinite}
+#powerSplash .strike3{animation:thorStrikeC .49s .28s infinite}
+#powerSplash .strike4{animation:thorStrikeB .83s .09s infinite reverse}
+#powerSplash .strike5{animation:thorStrikeA .66s .36s infinite}
+#powerSplash .strike6{animation:thorStrikeC .77s .21s infinite reverse}
+#powerSplash .strike7{animation:thorStrikeA .91s .43s infinite}
+
+@keyframes thorStrikeA{
+  0%,14%,40%,69%,100%{opacity:0}
+  15%{opacity:.28} 17%{opacity:1} 19%{opacity:.08}
+  42%{opacity:.72} 44%{opacity:0}
+  71%{opacity:1} 73%{opacity:.15} 75%{opacity:0}
+}
+@keyframes thorStrikeB{
+  0%,24%,53%,82%,100%{opacity:0}
+  25%{opacity:1} 27%{opacity:.12} 29%{opacity:.82} 31%{opacity:0}
+  55%{opacity:.56} 57%{opacity:1} 59%{opacity:0}
+  84%{opacity:.95} 87%{opacity:0}
+}
+@keyframes thorStrikeC{
+  0%,9%,33%,61%,88%,100%{opacity:0}
+  10%{opacity:.92} 12%{opacity:1} 14%{opacity:0}
+  35%{opacity:.38} 37%{opacity:1} 39%{opacity:0}
+  63%{opacity:1} 65%{opacity:.10} 67%{opacity:0}
+  90%{opacity:.76} 92%{opacity:1} 94%{opacity:0}
+}
+
+/* Screen lights up only when the storm surges */
+#powerSplash .thunder-flash{
+  position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 47%,rgba(225,250,255,.72),rgba(40,185,255,.20) 38%,transparent 72%);
+  animation:thorAmbient 4s linear forwards;
+}
+@keyframes thorAmbient{
+  0%{opacity:.03}
+  18%{opacity:.12}
+  19%{opacity:.03}
+  37%{opacity:.22}
+  38%{opacity:.05}
+  58%{opacity:.16}
+  59%{opacity:.04}
+  73%{opacity:.28}
+  74%{opacity:.07}
+  84%{opacity:.34}
+  90%{opacity:.48}
+  94%{opacity:.66}
+  100%{opacity:.84}
+}
+
+/* Final transformation: multiple micro-flashes then a brutal white-blue detonation */
+#powerSplash .flash{
+  background:#fff!important;
+  box-shadow:
+    inset 0 0 70px #fff,
+    inset 0 0 210px rgba(175,242,255,1),
+    inset 0 0 520px rgba(0,170,255,1),
+    0 0 320px rgba(95,225,255,1)!important;
+  animation:v64ThunderDetonation 4s steps(1,end) forwards!important;
+}
+@keyframes v64ThunderDetonation{
+  0%,92.8%{opacity:0}
+  92.9%{opacity:.28}
+  93.5%{opacity:0}
+  94.0%{opacity:.62}
+  94.5%{opacity:.06}
+  95.0%{opacity:.88}
+  95.45%{opacity:.10}
+  95.9%{opacity:1}
+  99.15%{opacity:1}
+  99.45%{opacity:.86}
+  99.72%{opacity:1}
+  100%{opacity:0}
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1347,13 +1441,42 @@ html{background:#050b12}.wrap{padding-bottom:96px!important}.card{border:1px sol
 }
 </style>
 </head><body><div id="powerSplash" aria-label="Level Up loading screen">
+  <svg class="thor-storm" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true">
+    <g class="strike strike1">
+      <path class="mainbolt" d="M64 -20 L92 96 L71 178 L118 246 L93 330 L148 412"/>
+      <path class="branch" d="M78 155 L28 206 L50 267"/>
+      <path class="branch" d="M106 231 L158 278 L142 337"/>
+    </g>
+    <g class="strike strike2">
+      <path class="mainbolt" d="M330 -18 L294 92 L317 169 L269 238 L289 320 L238 392"/>
+      <path class="branch" d="M303 132 L350 185 L332 245"/>
+      <path class="branch" d="M278 228 L222 266 L237 326"/>
+    </g>
+    <g class="strike strike3">
+      <path class="mainbolt" d="M196 -25 L177 78 L207 145 L182 221 L216 296 L190 378 L221 454"/>
+      <path class="branch" d="M199 145 L250 186 L235 239"/>
+      <path class="branch" d="M191 220 L140 267 L158 318"/>
+    </g>
+    <g class="strike strike4">
+      <path class="mainbolt" d="M-18 362 L54 338 L104 372 L162 342 L214 383"/>
+      <path class="branch" d="M103 371 L83 429 L112 468"/>
+    </g>
+    <g class="strike strike5">
+      <path class="mainbolt" d="M408 465 L340 430 L297 462 L248 427 L204 474"/>
+      <path class="branch" d="M296 461 L314 522 L280 560"/>
+    </g>
+    <g class="strike strike6">
+      <path class="mainbolt" d="M28 864 L62 746 L48 672 L92 603 L73 528"/>
+      <path class="branch" d="M61 745 L121 706 L109 649"/>
+    </g>
+    <g class="strike strike7">
+      <path class="mainbolt" d="M365 862 L327 760 L345 682 L302 616 L319 548"/>
+      <path class="branch" d="M328 760 L270 719 L282 660"/>
+    </g>
+  </svg>
+  <div class="thunder-flash"></div>
+
   <div class="aura"></div>
-  <div class="saiyan-beam"></div>
-  <div class="saiyan-aura">
-    <i class="spike s1"></i><i class="spike s2"></i><i class="spike s3"></i>
-    <i class="spike s4"></i><i class="spike s5"></i><i class="spike s6"></i>
-    <i class="spike s7"></i><i class="spike s8"></i>
-  </div>
   <div class="shock"></div>
   <div class="flash"></div>
   <div class="bolt b1"></div>
@@ -1456,7 +1579,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v63'; let first=true;
+ const ver='v64'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=4000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
