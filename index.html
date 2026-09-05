@@ -852,12 +852,12 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 #powerSplash .flash{
   z-index:999!important;
   background:#fff6bf!important;
-  animation:fullScreenPowerFlash 8s linear forwards!important;
+  animation:fullScreenPowerFlash 7s linear forwards!important;
 }
 #powerSplash .aura,
 #powerSplash .shock,
 #powerSplash .splash-title{
-  animation-duration:8s!important;
+  animation-duration:7s!important;
 }
 @keyframes fullScreenPowerFlash{
   0%,82%{opacity:0}
@@ -915,7 +915,7 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
     0 0 42px rgba(255,211,45,.90),
     0 0 85px rgba(255,153,0,.72),
     0 0 150px rgba(255,91,0,.42);
-  animation:singleOrbGrow 8s linear forwards;
+  animation:singleOrbGrow 7s linear forwards;
 }
 #powerSplash .energy-orb::before{
   content:"";
@@ -952,13 +952,43 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
 }
 #powerSplash .splash-core{z-index:6!important}
 #powerSplash .flash{animation:v56FinalFlash 8s linear forwards!important}
-@keyframes v56FinalFlash{
+@keyframes v57FinalFlash{
   0%,91%{opacity:0}
   95%{opacity:.12}
   97%{opacity:.38}
   98.5%{opacity:.72}
   99.3%{opacity:.96}
   100%{opacity:0}
+}
+
+
+/* V57 — softer, fuzzier fireball perimeter */
+#powerSplash .energy-orb{
+  box-shadow:
+    0 0 20px rgba(255,250,190,.92),
+    0 0 52px rgba(255,211,45,.84),
+    0 0 105px rgba(255,153,0,.64),
+    0 0 185px rgba(255,91,0,.34)!important;
+}
+#powerSplash .energy-orb::before{
+  inset:-24%!important;
+  filter:blur(15px)!important;
+  opacity:.82;
+}
+#powerSplash .energy-orb::after{
+  content:"";
+  position:absolute;
+  inset:-34%;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle,
+    transparent 48%,
+    rgba(255,190,0,.18) 61%,
+    rgba(255,113,0,.12) 72%,
+    rgba(255,72,0,.055) 82%,
+    transparent 94%);
+  filter:blur(20px);
+  animation:orbFireDrift 2.3s linear infinite reverse;
 }
 
 </style>
@@ -1185,9 +1215,9 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v56'; let first=true;
+ const ver='v57'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
- const duration=8000;
+ const duration=7000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
  setTimeout(()=>{splash.classList.add('splash-hide');try{localStorage.setItem('levelUpSplashVersion',ver)}catch(e){}setTimeout(()=>splash.remove(),650)},duration);
 })();
