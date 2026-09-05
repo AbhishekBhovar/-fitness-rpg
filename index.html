@@ -872,6 +872,17 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   100%{opacity:0}
 }
 
+
+/* V51 hard guard: absolutely no logo/image in startup animation */
+#powerSplash img,
+#powerSplash .splash-logo{
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  width:0!important;
+  height:0!important;
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1086,7 +1097,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v48'; let first=true;
+ const ver='v51'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=8000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
