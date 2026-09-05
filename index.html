@@ -991,6 +991,87 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   animation:orbFireDrift 2.3s linear infinite reverse;
 }
 
+
+/* V58 — diffuse perimeter + organic licking flames */
+#powerSplash .energy-orb{
+  box-shadow:
+    0 0 28px rgba(255,250,190,.82),
+    0 0 70px rgba(255,211,45,.68),
+    0 0 135px rgba(255,153,0,.48),
+    0 0 230px rgba(255,91,0,.24)!important;
+}
+#powerSplash .energy-orb::before{
+  inset:-38%!important;
+  filter:blur(25px)!important;
+  opacity:.72!important;
+  animation:organicAura 2.1s ease-in-out infinite alternate!important;
+}
+#powerSplash .energy-orb::after{
+  inset:-52%!important;
+  filter:blur(34px)!important;
+  opacity:.62!important;
+  animation:organicAura2 2.7s ease-in-out infinite alternate-reverse!important;
+}
+#powerSplash .flame-wisp{
+  position:absolute;
+  left:50%; top:50%;
+  width:22%; height:62%;
+  border-radius:55% 45% 65% 35%;
+  transform-origin:50% 100%;
+  pointer-events:none;
+  opacity:0;
+  z-index:-1;
+  background:linear-gradient(to top,
+    rgba(255,120,0,.05) 0%,
+    rgba(255,157,0,.48) 28%,
+    rgba(255,220,58,.72) 58%,
+    rgba(255,247,173,.38) 78%,
+    transparent 100%);
+  filter:blur(7px);
+  mix-blend-mode:screen;
+  animation:flameLick 1.35s ease-in-out infinite alternate;
+}
+#powerSplash .fw1{transform:translate(-50%,-116%) rotate(-8deg) scale(.8,1.2);animation-delay:-.1s}
+#powerSplash .fw2{transform:translate(105%,-88%) rotate(48deg) scale(.62,1.0);animation-delay:-.65s}
+#powerSplash .fw3{transform:translate(105%,18%) rotate(118deg) scale(.72,1.12);animation-delay:-.35s}
+#powerSplash .fw4{transform:translate(-50%,68%) rotate(178deg) scale(.65,.92);animation-delay:-.9s}
+#powerSplash .fw5{transform:translate(-205%,10%) rotate(238deg) scale(.74,1.08);animation-delay:-.48s}
+#powerSplash .fw6{transform:translate(-195%,-90%) rotate(305deg) scale(.58,.96);animation-delay:-1.05s}
+
+@keyframes organicAura{
+  0%{transform:rotate(-4deg) scale(.94,1.03);opacity:.48}
+  35%{transform:rotate(3deg) scale(1.08,.96);opacity:.68}
+  70%{transform:rotate(-2deg) scale(.98,1.10);opacity:.55}
+  100%{transform:rotate(5deg) scale(1.12,1.01);opacity:.73}
+}
+@keyframes organicAura2{
+  0%{transform:rotate(5deg) scale(1.04,.93);opacity:.34}
+  45%{transform:rotate(-5deg) scale(.92,1.12);opacity:.56}
+  100%{transform:rotate(3deg) scale(1.15,1.03);opacity:.42}
+}
+@keyframes flameLick{
+  0%{
+    opacity:.28;
+    margin-top:4%;
+    filter:blur(9px);
+  }
+  35%{
+    opacity:.72;
+    margin-top:-5%;
+    filter:blur(6px);
+  }
+  70%{
+    opacity:.42;
+    margin-top:2%;
+    filter:blur(10px);
+  }
+  100%{
+    opacity:.82;
+    margin-top:-11%;
+    filter:blur(5px);
+  }
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1115,7 +1196,11 @@ html{background:#050b12}.wrap{padding-bottom:96px!important}.card{border:1px sol
 }
 </style>
 </head><body><div id="powerSplash" aria-label="Level Up loading screen">
-  <div class="aura"></div><div class="energy-orb"></div>
+  <div class="aura"></div><div class="energy-orb">
+      <span class="flame-wisp fw1"></span><span class="flame-wisp fw2"></span>
+      <span class="flame-wisp fw3"></span><span class="flame-wisp fw4"></span>
+      <span class="flame-wisp fw5"></span><span class="flame-wisp fw6"></span>
+    </div>
   <div class="shock"></div>
   <div class="flash"></div>
   <div class="bolt b1"></div>
@@ -1215,7 +1300,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v57'; let first=true;
+ const ver='v58'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=7000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
