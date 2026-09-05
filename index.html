@@ -1077,6 +1077,74 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   100%{opacity:0}
 }
 
+
+/* V62 — sharper anime transformation silhouette: blue-white aura spikes + vertical energy beam */
+#powerSplash .saiyan-beam{
+  position:absolute;left:50%;top:-10%;bottom:-10%;width:16%;
+  transform:translateX(-50%) scaleX(.30);
+  z-index:3;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(65,200,255,.22),rgba(238,252,255,.94),rgba(65,200,255,.22),transparent);
+  filter:blur(7px);
+  animation:saiyanBeamBuild 5s ease-in forwards;
+}
+#powerSplash .saiyan-aura{
+  position:absolute;inset:0;z-index:3;pointer-events:none;
+  filter:drop-shadow(0 0 12px rgba(50,205,255,.85));
+}
+#powerSplash .spike{
+  position:absolute;left:50%;top:52%;
+  width:15%;height:72%;
+  transform-origin:50% 100%;
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+  opacity:0;
+  background:linear-gradient(to top,rgba(0,120,255,.04),rgba(35,195,255,.52),rgba(235,252,255,.92));
+  filter:blur(2px);
+  animation:saiyanSpike 1.0s ease-in-out infinite alternate;
+}
+#powerSplash .s1{transform:translate(-50%,-100%) rotate(-36deg) scale(.55,1.08);animation-delay:-.15s}
+#powerSplash .s2{transform:translate(-50%,-100%) rotate(-25deg) scale(.70,1.25);animation-delay:-.62s}
+#powerSplash .s3{transform:translate(-50%,-100%) rotate(-13deg) scale(.60,1.42);animation-delay:-.35s}
+#powerSplash .s4{transform:translate(-50%,-100%) rotate(-4deg) scale(.72,1.55);animation-delay:-.78s}
+#powerSplash .s5{transform:translate(-50%,-100%) rotate(7deg) scale(.68,1.48);animation-delay:-.28s}
+#powerSplash .s6{transform:translate(-50%,-100%) rotate(17deg) scale(.62,1.36);animation-delay:-.53s}
+#powerSplash .s7{transform:translate(-50%,-100%) rotate(28deg) scale(.68,1.22);animation-delay:-.08s}
+#powerSplash .s8{transform:translate(-50%,-100%) rotate(39deg) scale(.50,1.04);animation-delay:-.45s}
+
+@keyframes saiyanSpike{
+  0%{opacity:.10;margin-top:7%;filter:blur(4px)}
+  45%{opacity:.38;margin-top:-3%;filter:blur(2px)}
+  100%{opacity:.66;margin-top:-10%;filter:blur(1px)}
+}
+@keyframes saiyanBeamBuild{
+  0%,25%{opacity:0;transform:translateX(-50%) scaleX(.18)}
+  45%{opacity:.12;transform:translateX(-50%) scaleX(.35)}
+  65%{opacity:.28;transform:translateX(-50%) scaleX(.58)}
+  82%{opacity:.52;transform:translateX(-50%) scaleX(.85)}
+  94%{opacity:.82;transform:translateX(-50%) scaleX(1.25)}
+  100%{opacity:1;transform:translateX(-50%) scaleX(1.75)}
+}
+
+/* Faster, more violent final blue-white transformation burst */
+#powerSplash .flash{
+  background:#f7fdff!important;
+  box-shadow:
+    inset 0 0 100px rgba(255,255,255,1),
+    inset 0 0 240px rgba(80,220,255,1),
+    0 0 180px rgba(0,170,255,1)!important;
+  animation:v62FinalBurst 5s linear forwards!important;
+}
+@keyframes v62FinalBurst{
+  0%,95.8%{opacity:0}
+  96.4%{opacity:.28}
+  96.9%{opacity:.62}
+  97.35%{opacity:1}
+  98.25%{opacity:1}
+  98.7%{opacity:.92}
+  99.1%{opacity:1}
+  99.45%{opacity:.70}
+  100%{opacity:0}
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1202,6 +1270,12 @@ html{background:#050b12}.wrap{padding-bottom:96px!important}.card{border:1px sol
 </style>
 </head><body><div id="powerSplash" aria-label="Level Up loading screen">
   <div class="aura"></div>
+  <div class="saiyan-beam"></div>
+  <div class="saiyan-aura">
+    <i class="spike s1"></i><i class="spike s2"></i><i class="spike s3"></i>
+    <i class="spike s4"></i><i class="spike s5"></i><i class="spike s6"></i>
+    <i class="spike s7"></i><i class="spike s8"></i>
+  </div>
   <div class="shock"></div>
   <div class="flash"></div>
   <div class="bolt b1"></div>
@@ -1301,7 +1375,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v61'; let first=true;
+ const ver='v62'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=5000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
