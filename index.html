@@ -1072,6 +1072,98 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   }
 }
 
+
+/* V59 — hotter yellow solar-plasma orb with jagged, organic flare edges */
+#powerSplash .energy-orb{
+  background:
+    radial-gradient(circle at 46% 42%,
+      rgba(255,255,245,1) 0%,
+      rgba(255,250,170,.98) 7%,
+      rgba(255,226,35,.98) 17%,
+      rgba(255,179,0,.98) 33%,
+      rgba(255,113,0,.86) 50%,
+      rgba(173,55,0,.58) 64%,
+      rgba(255,145,0,.20) 77%,
+      transparent 91%)!important;
+  box-shadow:
+    0 0 24px rgba(255,255,210,.92),
+    0 0 62px rgba(255,224,45,.80),
+    0 0 130px rgba(255,164,0,.60),
+    0 0 235px rgba(255,92,0,.30)!important;
+}
+#powerSplash .energy-orb::before{
+  inset:-42%!important;
+  opacity:.88!important;
+  filter:blur(18px)!important;
+  background:
+    conic-gradient(from 0deg,
+      transparent 0 3%, rgba(255,239,81,.82) 4% 6%, transparent 7% 11%,
+      rgba(255,170,0,.68) 12% 15%, transparent 16% 21%,
+      rgba(255,245,130,.92) 22% 25%, transparent 26% 31%,
+      rgba(255,122,0,.66) 32% 35%, transparent 36% 41%,
+      rgba(255,232,58,.88) 42% 46%, transparent 47% 53%,
+      rgba(255,157,0,.72) 54% 57%, transparent 58% 64%,
+      rgba(255,247,150,.86) 65% 68%, transparent 69% 75%,
+      rgba(255,130,0,.72) 76% 79%, transparent 80% 86%,
+      rgba(255,225,45,.92) 87% 91%, transparent 92% 100%)!important;
+  animation:solarEdgeWarp .92s ease-in-out infinite alternate!important;
+}
+#powerSplash .energy-orb::after{
+  inset:-58%!important;
+  opacity:.64!important;
+  filter:blur(30px)!important;
+  background:
+    radial-gradient(circle,
+      transparent 35%,
+      rgba(255,227,50,.20) 49%,
+      rgba(255,166,0,.18) 62%,
+      rgba(255,91,0,.09) 75%,
+      transparent 92%)!important;
+  animation:solarBreath 1.15s ease-in-out infinite alternate!important;
+}
+
+/* More, faster, asymmetrical flame tongues around the edge */
+#powerSplash .flame-wisp{
+  width:18%!important;
+  height:72%!important;
+  filter:blur(5px)!important;
+  background:linear-gradient(to top,
+    rgba(255,102,0,.02) 0%,
+    rgba(255,144,0,.55) 24%,
+    rgba(255,215,35,.90) 56%,
+    rgba(255,251,180,.62) 76%,
+    transparent 100%)!important;
+  animation:flameLickFast .72s ease-in-out infinite alternate!important;
+}
+#powerSplash .fw1{transform:translate(-50%,-125%) rotate(-10deg) scale(.72,1.45);animation-delay:-.08s!important}
+#powerSplash .fw2{transform:translate(118%,-96%) rotate(42deg) scale(.60,1.22);animation-delay:-.42s!important}
+#powerSplash .fw3{transform:translate(128%,4%) rotate(104deg) scale(.66,1.30);animation-delay:-.18s!important}
+#powerSplash .fw4{transform:translate(-44%,78%) rotate(174deg) scale(.58,1.12);animation-delay:-.56s!important}
+#powerSplash .fw5{transform:translate(-218%,8%) rotate(236deg) scale(.68,1.38);animation-delay:-.31s!important}
+#powerSplash .fw6{transform:translate(-202%,-98%) rotate(304deg) scale(.55,1.20);animation-delay:-.66s!important}
+#powerSplash .fw7{transform:translate(42%,-128%) rotate(18deg) scale(.46,1.16);animation-delay:-.24s!important}
+#powerSplash .fw8{transform:translate(142%,-42%) rotate(76deg) scale(.48,1.08);animation-delay:-.51s!important}
+#powerSplash .fw9{transform:translate(-142%,60%) rotate(214deg) scale(.52,1.18);animation-delay:-.14s!important}
+#powerSplash .fw10{transform:translate(-165%,-48%) rotate(282deg) scale(.44,1.04);animation-delay:-.61s!important}
+
+@keyframes solarEdgeWarp{
+  0%{transform:rotate(-5deg) scale(.93,1.08)}
+  28%{transform:rotate(4deg) scale(1.12,.94)}
+  58%{transform:rotate(-2deg) scale(.98,1.16)}
+  100%{transform:rotate(6deg) scale(1.15,1.00)}
+}
+@keyframes solarBreath{
+  0%{transform:scale(.92);opacity:.46}
+  45%{transform:scale(1.10);opacity:.68}
+  100%{transform:scale(1.03);opacity:.54}
+}
+@keyframes flameLickFast{
+  0%{opacity:.24;margin-top:7%;filter:blur(8px)}
+  30%{opacity:.90;margin-top:-12%;filter:blur(4px)}
+  62%{opacity:.48;margin-top:2%;filter:blur(7px)}
+  100%{opacity:1;margin-top:-20%;filter:blur(3px)}
+}
+
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -1199,7 +1291,7 @@ html{background:#050b12}.wrap{padding-bottom:96px!important}.card{border:1px sol
   <div class="aura"></div><div class="energy-orb">
       <span class="flame-wisp fw1"></span><span class="flame-wisp fw2"></span>
       <span class="flame-wisp fw3"></span><span class="flame-wisp fw4"></span>
-      <span class="flame-wisp fw5"></span><span class="flame-wisp fw6"></span>
+      <span class="flame-wisp fw5"></span><span class="flame-wisp fw6"></span><span class="flame-wisp fw7"></span><span class="flame-wisp fw8"></span><span class="flame-wisp fw9"></span><span class="flame-wisp fw10"></span>
     </div>
   <div class="shock"></div>
   <div class="flash"></div>
@@ -1300,7 +1392,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v58'; let first=true;
+ const ver='v59'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=7000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}
