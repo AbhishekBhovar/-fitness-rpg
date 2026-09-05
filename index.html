@@ -1797,6 +1797,21 @@ button.active,.tab-btn.active{border-color:var(--accent)!important;box-shadow:0 
   100%{opacity:0;transform:translate(-50%,-50%) scale(10)}
 }
 
+
+/* V70 timing polish */
+#powerSplash .strike1{animation:v69BoltA 1.28s 1.50s infinite!important}
+#powerSplash .strike2{animation:v69BoltB 1.10s 2.65s infinite!important}
+#powerSplash .strike3{animation:v69BoltC .94s 3.70s infinite!important}
+#powerSplash .strike4{animation:v69BoltB .78s 4.65s infinite reverse!important}
+#powerSplash .strike5{animation:v69BoltA .64s 5.50s infinite!important}
+#powerSplash .strike6{animation:v69BoltC .50s 6.20s infinite reverse!important}
+#powerSplash .strike7{animation:v69BoltA .38s 6.80s infinite!important}
+#powerSplash .thunder-flash{animation:v70AmbientBuild 9s linear forwards!important}
+@keyframes v70AmbientBuild{0%,16.6%{opacity:0}21%{opacity:.025}31%{opacity:.05}41%{opacity:.09}52%{opacity:.15}62%{opacity:.23}71%{opacity:.32}79%{opacity:.44}86%{opacity:.58}91%{opacity:.71}95%{opacity:.84}100%{opacity:.95}}
+#powerSplash .flash{animation:v70ImpactDetonation 9s steps(1,end) forwards!important}
+@keyframes v70ImpactDetonation{0%,89%{opacity:0}89.2%{opacity:.14}89.6%{opacity:0}90%{opacity:.36}90.4%{opacity:.06}90.8%{opacity:.68}91.2%{opacity:.12}91.6%,99.05%{opacity:1}99.3%{opacity:.94}99.55%{opacity:1}99.78%{opacity:.84}100%{opacity:0}}
+#powerSplash .shock{animation:v70ShockBloom 9s cubic-bezier(.05,.86,.08,1) forwards!important}
+@keyframes v70ShockBloom{0%,91%{opacity:0;transform:translate(-50%,-50%) scale(.12)}91.2%{opacity:.95;transform:translate(-50%,-50%) scale(.22)}92%{opacity:.82;transform:translate(-50%,-50%) scale(1.3)}93%{opacity:.58;transform:translate(-50%,-50%) scale(3.8)}94.2%{opacity:.28;transform:translate(-50%,-50%) scale(7.2)}95.2%{opacity:.10;transform:translate(-50%,-50%) scale(10)}100%{opacity:0;transform:translate(-50%,-50%) scale(10)}}
 </style>
 <style id="hamstring-final-image-fix">
 /* Hamstring glossary image: full bodies, no crop, no oversized white frame. */
@@ -2059,7 +2074,7 @@ calcBtn.onclick=calculate;loadData();setMode(mode);setCardioMode(cardioMode);try
 (function(){
  const splash=document.getElementById('powerSplash'),bar=document.getElementById('splashBar');
  if(!splash)return;
- const ver='v69'; let first=true;
+ const ver='v70'; let first=true;
  try{first=localStorage.getItem('levelUpSplashVersion')!==ver}catch(e){}
  const duration=9000;
  if(bar){bar.style.transition='width '+(duration-300)+'ms cubic-bezier(.22,.7,.2,1)';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width='100%'))}

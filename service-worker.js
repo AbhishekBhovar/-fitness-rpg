@@ -1,4 +1,4 @@
-const CACHE='level-up-fitness-v69-true-delayed-storm-20260905';
+const CACHE='level-up-fitness-v70-timing-polish-20260905';
 const PREFIX='level-up-fitness-';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png','./assets/level_up_logo_gold_edge_FINAL_v49.png'])))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
